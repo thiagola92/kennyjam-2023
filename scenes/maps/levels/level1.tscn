@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg1ld77o6p4kr"]
+[gd_scene load_steps=6 format=3 uid="uid://cg1ld77o6p4kr"]
 
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_uk3ia"]
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="2_r2mn2"]
 [ext_resource type="PackedScene" uid="uid://ccpk8eoidbsn0" path="res://scenes/actions/interaction.tscn" id="3_s4opr"]
 [ext_resource type="Script" path="res://scenes/actions/door_interaction.gd" id="4_y2hvf"]
+[ext_resource type="PackedScene" uid="uid://0jqucry7l44h" path="res://scenes/objects/light_pole_light/light_pole_light.tscn" id="5_ys6r8"]
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
@@ -81,3 +82,12 @@ script = ExtResource("4_y2hvf")
 [node name="Interaction7" parent="Doors" instance=ExtResource("3_s4opr")]
 position = Vector2(1489, -121)
 script = ExtResource("4_y2hvf")
+
+[node name="Light Sources" type="Node2D" parent="."]
+
+[node name="DimLights" type="DirectionalLight2D" parent="Light Sources"]
+energy = 0.85
+blend_mode = 1
+
+[node name="LightPoleLight" parent="Light Sources" instance=ExtResource("5_ys6r8")]
+position = Vector2(-116, -74)
