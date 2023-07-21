@@ -1,18 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://citkhfbxb0erb"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_g5hsq"]
-[ext_resource type="Texture2D" uid="uid://c6o7nk4178ye6" path="res://icon.svg" id="2_je6lf"]
+[ext_resource type="Texture2D" uid="uid://ko7fselm4uwd" path="res://assets/maps/rpg_urban_pack.png" id="2_av37q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_od4ne"]
+radius = 13.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g5hsq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.109375, 0.109375)
-texture = ExtResource("2_je6lf")
+texture = ExtResource("2_av37q")
+hframes = 4
+vframes = 3
+region_enabled = true
+region_rect = Rect2(736, 480, 128, 96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_od4ne")
 
 [node name="Camera2D" type="Camera2D" parent="."]
