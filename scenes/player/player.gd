@@ -2,8 +2,6 @@ class_name Player
 extends CharacterBody2D
 
 
-signal item_changed
-
 @export var movement_speed: int = 100
 
 @export var animation_player: AnimationPlayer
