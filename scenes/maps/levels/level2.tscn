@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfhtr4udtwv4f"]
+
+[ext_resource type="PackedScene" uid="uid://1kiq6e3l3gwt" path="res://scenes/maps/tilemaps/rpg_roguelike_indors.tscn" id="1_i7dar"]
+[ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="2_7btry"]
+[ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="3_751l1"]
+
+[node name="level2" type="Node2D"]
+
+[node name="RPGRoguelikeIndoors" parent="." instance=ExtResource("1_i7dar")]
+
+[node name="RPGUrbanPack" parent="." instance=ExtResource("2_7btry")]
+
+[node name="Player" parent="." instance=ExtResource("3_751l1")]
