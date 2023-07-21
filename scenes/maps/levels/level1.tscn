@@ -85,9 +85,13 @@ script = ExtResource("4_y2hvf")
 
 [node name="Light Sources" type="Node2D" parent="."]
 
+[node name="LightPoleLight" parent="Light Sources" instance=ExtResource("5_ys6r8")]
+position = Vector2(-119, -76)
+
+[node name="LightPoleLight2" parent="Light Sources" instance=ExtResource("5_ys6r8")]
+position = Vector2(71, -73)
+intervals = Array[float]([0.25, 0.3, 0.5, 1.0, 0.1, 0.1, 0.4])
+
 [node name="DimLights" type="DirectionalLight2D" parent="Light Sources"]
 energy = 0.85
 blend_mode = 1
-
-[node name="LightPoleLight" parent="Light Sources" instance=ExtResource("5_ys6r8")]
-position = Vector2(-116, -74)

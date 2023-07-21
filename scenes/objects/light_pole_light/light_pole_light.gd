@@ -11,6 +11,9 @@ func _ready() -> void:
 
 
 func start_next_interval() -> void:
+	if intervals.is_empty():
+		return
+	
 	if current >= intervals.size():
 		current = 0
 	
