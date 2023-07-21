@@ -2,4 +2,5 @@ extends "res://scenes/actions/interaction.gd"
 
 
 func _execute_action () -> void:
-	get_tree().change_scene_to_file("res://scenes/maps/levels/level2.tscn")
+	_show_label_with_text('Locked')
+	$LockedDoorSound.play(0)

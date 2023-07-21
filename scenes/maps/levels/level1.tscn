@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg1ld77o6p4kr"]
+[gd_scene load_steps=8 format=3 uid="uid://cg1ld77o6p4kr"]
 
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_uk3ia"]
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="2_r2mn2"]
 [ext_resource type="PackedScene" uid="uid://ccpk8eoidbsn0" path="res://scenes/actions/interaction.tscn" id="3_s4opr"]
+[ext_resource type="Script" path="res://scenes/actions/door_interaction_locked.gd" id="4_e7lbt"]
 [ext_resource type="Script" path="res://scenes/actions/door_interaction.gd" id="4_y2hvf"]
 [ext_resource type="PackedScene" uid="uid://0jqucry7l44h" path="res://scenes/objects/light_pole_light/light_pole_light.tscn" id="5_ys6r8"]
 [ext_resource type="AudioStream" uid="uid://c1s3ufplveco0" path="res://assets/sounds/city_background.mp3" id="6_xf0c0"]
@@ -58,30 +59,34 @@ position = Vector2(-205, -78)
 
 [node name="Interaction" parent="Doors" instance=ExtResource("3_s4opr")]
 position = Vector2(-144, -122)
-script = ExtResource("4_y2hvf")
+script = ExtResource("4_e7lbt")
 
 [node name="Interaction2" parent="Doors" instance=ExtResource("3_s4opr")]
 position = Vector2(80, -122)
-script = ExtResource("4_y2hvf")
+script = ExtResource("4_e7lbt")
 
 [node name="Interaction3" parent="Doors" instance=ExtResource("3_s4opr")]
 position = Vector2(305, -120)
-script = ExtResource("4_y2hvf")
+script = ExtResource("4_e7lbt")
 
 [node name="Interaction4" parent="Doors" instance=ExtResource("3_s4opr")]
 position = Vector2(848, -120)
-script = ExtResource("4_y2hvf")
+script = ExtResource("4_e7lbt")
 
 [node name="Interaction5" parent="Doors" instance=ExtResource("3_s4opr")]
 position = Vector2(1296, -119)
-script = ExtResource("4_y2hvf")
+script = ExtResource("4_e7lbt")
 
 [node name="Interaction6" parent="Doors" instance=ExtResource("3_s4opr")]
 position = Vector2(1392, -120)
-script = ExtResource("4_y2hvf")
+script = ExtResource("4_e7lbt")
 
 [node name="Interaction7" parent="Doors" instance=ExtResource("3_s4opr")]
-position = Vector2(1489, -121)
+position = Vector2(1489, -120)
+script = ExtResource("4_e7lbt")
+
+[node name="Interaction8" parent="Doors" instance=ExtResource("3_s4opr")]
+position = Vector2(913, -346)
 script = ExtResource("4_y2hvf")
 
 [node name="Light Sources" type="Node2D" parent="."]
