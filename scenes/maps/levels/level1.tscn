@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg1ld77o6p4kr"]
+[gd_scene load_steps=7 format=3 uid="uid://cg1ld77o6p4kr"]
 
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_uk3ia"]
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="2_r2mn2"]
 [ext_resource type="PackedScene" uid="uid://ccpk8eoidbsn0" path="res://scenes/actions/interaction.tscn" id="3_s4opr"]
 [ext_resource type="Script" path="res://scenes/actions/door_interaction.gd" id="4_y2hvf"]
 [ext_resource type="PackedScene" uid="uid://0jqucry7l44h" path="res://scenes/objects/light_pole_light/light_pole_light.tscn" id="5_ys6r8"]
+[ext_resource type="AudioStream" uid="uid://c1s3ufplveco0" path="res://assets/sounds/city_background.mp3" id="6_xf0c0"]
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
@@ -86,12 +87,30 @@ script = ExtResource("4_y2hvf")
 [node name="Light Sources" type="Node2D" parent="."]
 
 [node name="LightPoleLight" parent="Light Sources" instance=ExtResource("5_ys6r8")]
-position = Vector2(-119, -76)
+position = Vector2(-119, -74)
+intervals = Array[float]([3.0, 0.25, 1.0, 0.25])
 
 [node name="LightPoleLight2" parent="Light Sources" instance=ExtResource("5_ys6r8")]
-position = Vector2(71, -73)
-intervals = Array[float]([0.25, 0.3, 0.5, 1.0, 0.1, 0.1, 0.4])
+position = Vector2(73, -74)
+intervals = Array[float]([1.0, 0.3, 2.0, 0.4])
+
+[node name="LightPoleLight3" parent="Light Sources" instance=ExtResource("5_ys6r8")]
+position = Vector2(91, -74)
+intervals = Array[float]([0.25, 1.0, 0.75, 0.15])
+
+[node name="LightPoleLight4" parent="Light Sources" instance=ExtResource("5_ys6r8")]
+position = Vector2(745, -74)
+intervals = Array[float]([1.2, 0.15, 0.75, 1.0])
+
+[node name="LightPoleLight5" parent="Light Sources" instance=ExtResource("5_ys6r8")]
+position = Vector2(763, -73)
+intervals = Array[float]([0.9, 0.02, 0.48, 1.0])
 
 [node name="DimLights" type="DirectionalLight2D" parent="Light Sources"]
-energy = 0.85
+energy = 0.9
 blend_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xf0c0")
+volume_db = -17.992
+autoplay = true
