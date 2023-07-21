@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtqm8runp1o6m"]
+
+[ext_resource type="Script" path="res://scenes/items/flashlight/flashlight.gd" id="1_7fl2b"]
+[ext_resource type="Texture2D" uid="uid://d20qcxn5px6o" path="res://assets/particles/Rotated/muzzle_04_rotated.png" id="2_fpri7"]
+
+[node name="Flashlight" type="Node2D" node_paths=PackedStringArray("point_light")]
+script = ExtResource("1_7fl2b")
+point_light = NodePath("PointLight2D")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(109, -2)
+rotation = 3.14159
+blend_mode = 2
+texture = ExtResource("2_fpri7")
