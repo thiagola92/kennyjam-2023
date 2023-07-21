@@ -1,19 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtqm8runp1o6m"]
+[gd_scene load_steps=3 format=3 uid="uid://dtqm8runp1o6m"]
 
-[ext_resource type="Texture2D" uid="uid://pyocxgo63kjq" path="res://assets/others/lantern.png" id="1_iffln"]
 [ext_resource type="Script" path="res://scenes/items/lantern/lantern.gd" id="1_pokye"]
 [ext_resource type="Texture2D" uid="uid://d20qcxn5px6o" path="res://assets/particles/Rotated/muzzle_04_rotated.png" id="3_nfyvq"]
 
 [node name="Lantern" type="Node2D" node_paths=PackedStringArray("point_light")]
 script = ExtResource("1_pokye")
 point_light = NodePath("PointLight2D")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(-0.25, -0.25)
-texture = ExtResource("1_iffln")
-hframes = 10
-vframes = 6
-frame = 50
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(109, -2)
