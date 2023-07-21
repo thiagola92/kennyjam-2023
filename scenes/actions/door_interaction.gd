@@ -2,4 +2,4 @@ extends "res://scenes/actions/interaction.gd"
 
 
 func _execute_action () -> void:
-	print('teste')
+	_show_label_with_text('Locked')
