@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ko7fselm4uwd"
-path="res://.godot/imported/rpg_urban_pack.png-1e1191f2df51d6899256206c6a5b2692.ctex"
+uid="uid://b1xo4podnlgje"
+path="res://.godot/imported/rpg_urban_pack_old.png-c01892d8816d2e1e554aaefbe0211bef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/maps/rpg_urban_pack.png"
-dest_files=["res://.godot/imported/rpg_urban_pack.png-1e1191f2df51d6899256206c6a5b2692.ctex"]
+source_file="res://assets/maps/rpg_urban_pack_old.png"
+dest_files=["res://.godot/imported/rpg_urban_pack_old.png-c01892d8816d2e1e554aaefbe0211bef.ctex"]
 
 [params]
 
