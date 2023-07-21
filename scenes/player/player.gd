@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var movement_speed: int = 500
+@export var movement_speed: int = 100
 
 
 
