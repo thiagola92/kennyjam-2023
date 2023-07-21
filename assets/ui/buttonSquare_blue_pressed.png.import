@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pyocxgo63kjq"
-path="res://.godot/imported/lantern.png-3d07f81a47278f9cc5de6e28f49dade7.ctex"
+uid="uid://c0ilgo7o56soq"
+path="res://.godot/imported/buttonSquare_blue_pressed.png-9e0f0d7a078e067f76d871ec42105992.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/others/lantern.png"
-dest_files=["res://.godot/imported/lantern.png-3d07f81a47278f9cc5de6e28f49dade7.ctex"]
+source_file="res://assets/ui/buttonSquare_blue_pressed.png"
+dest_files=["res://.godot/imported/buttonSquare_blue_pressed.png-9e0f0d7a078e067f76d871ec42105992.ctex"]
 
 [params]
 

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://qyaooic6ejhe"]
+
+[ext_resource type="Script" path="res://scenes/ui/game_ui.gd" id="1_riffj"]
+[ext_resource type="Texture2D" uid="uid://c0ilgo7o56soq" path="res://assets/ui/buttonSquare_blue_pressed.png" id="2_ct06m"]
+
+[sub_resource type="Theme" id="Theme_sacm7"]
+
+[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("item_slot")]
+script = ExtResource("1_riffj")
+item_slot = NodePath("MarginContainer/HBoxContainer/TextureRect/TextureRect")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.745098)
+layout_mode = 2
+texture = ExtResource("2_ct06m")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -6.0
+offset_right = 18.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_sacm7")
