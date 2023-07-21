@@ -106,6 +106,22 @@ intervals = Array[float]([1.2, 0.15, 0.75, 1.0])
 position = Vector2(763, -73)
 intervals = Array[float]([0.9, 0.02, 0.48, 1.0])
 
+[node name="LightPoleLight6" parent="Light Sources" instance=ExtResource("5_ys6r8")]
+position = Vector2(1193, -74)
+intervals = Array[float]([0.35, 0.22, 1.0, 2.0])
+
+[node name="LightPoleLight7" parent="Light Sources" instance=ExtResource("5_ys6r8")]
+position = Vector2(1175, -425)
+intervals = Array[float]([0.35, 0.22, 1.0, 2.0])
+
+[node name="LightPoleLight8" parent="Light Sources" instance=ExtResource("5_ys6r8")]
+position = Vector2(968, -328)
+intervals = Array[float]([1.0, 2.0, 0.12, 1.0])
+
+[node name="LightPoleLight9" parent="Light Sources" instance=ExtResource("5_ys6r8")]
+position = Vector2(987, -329)
+intervals = Array[float]([0.22, 1.0, 1.5, 0.35])
+
 [node name="DimLights" type="DirectionalLight2D" parent="Light Sources"]
 energy = 0.9
 blend_mode = 1
