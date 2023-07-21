@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ccpk8eoidbsn0" path="res://scenes/actions/interaction.tscn" id="3_s4opr"]
 [ext_resource type="Script" path="res://scenes/actions/door_interaction.gd" id="4_y2hvf"]
 
-[node name="level1" type="Node2D"]
+[node name="Level1" type="Node2D"]
 y_sort_enabled = true
 
 [node name="RPGUrbanPack" parent="." instance=ExtResource("1_uk3ia")]
@@ -33,7 +33,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-393187, 1179649, 8, -393186, 1179649, 8, -393185, 1179649, 8, -393184, 1179649, 8, -393183, 1179649, 8, -393182, 1179649, 8, -393181, 1179649, 8, -393180, 1179649, 8, -393179, 1179649, 8, -393188, 1114113, 8, -393178, 1114113, 8, -327660, 327681, 8, -327656, 327681, 8, -327659, 393217, 8, -327657, 393217, 8, -524268, 262145, 13, -524267, 327681, 13, -524266, 327681, 13, -524265, 327681, 13, -524264, 393217, 13, -327665, 393217, 8, -327664, 393217, 8, -720850, 1376257, 16, -720849, 1441793, 16, -131076, 131073, 6, -196606, 196609, 6, -196585, 196609, 6, -196571, 131073, 6, -196559, 327681, 6, -917468, 131073, 65542, -917454, 262145, 6, -720866, 196609, 6, -131022, 65537, 7, -131041, 65537, 7, -131058, 65537, 7, -65537, 65537, 7)
+layer_3/tile_data = PackedInt32Array(-393187, 1179649, 8, -393186, 1179649, 8, -393185, 1179649, 8, -393184, 1179649, 8, -393183, 1179649, 8, -393182, 1179649, 8, -393181, 1179649, 8, -393180, 1179649, 8, -393179, 1179649, 8, -393188, 1114113, 8, -393178, 1114113, 8, -327660, 327681, 8, -327656, 327681, 8, -327659, 393217, 8, -327657, 393217, 8, -524268, 262145, 13, -524267, 327681, 13, -524266, 327681, 13, -524265, 327681, 13, -524264, 393217, 13, -327665, 393217, 8, -327664, 393217, 8, -720850, 1376257, 16, -720849, 1441793, 16, -131076, 131073, 6, -196606, 196609, 6, -196585, 196609, 6, -196571, 131073, 6, -196559, 327681, 6, -917468, 131073, 65542, -917454, 262145, 6, -720866, 196609, 6, -131022, 65537, 7, -131041, 65537, 7, -131058, 65537, 7, -65537, 65537, 7, -655327, 327681, 8, -655326, 327681, 8, -982997, 393217, 8, -982996, 393217, 8)
 layer_4/name = "decorations 2"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
@@ -52,6 +52,32 @@ layer_5/tile_data = PackedInt32Array(-262149, 720897, 10, -327678, 786433, 10, -
 [node name="Player" parent="." instance=ExtResource("2_r2mn2")]
 position = Vector2(-205, -78)
 
-[node name="Interaction" parent="." instance=ExtResource("3_s4opr")]
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Interaction" parent="Doors" instance=ExtResource("3_s4opr")]
 position = Vector2(-144, -122)
+script = ExtResource("4_y2hvf")
+
+[node name="Interaction2" parent="Doors" instance=ExtResource("3_s4opr")]
+position = Vector2(80, -122)
+script = ExtResource("4_y2hvf")
+
+[node name="Interaction3" parent="Doors" instance=ExtResource("3_s4opr")]
+position = Vector2(305, -120)
+script = ExtResource("4_y2hvf")
+
+[node name="Interaction4" parent="Doors" instance=ExtResource("3_s4opr")]
+position = Vector2(848, -120)
+script = ExtResource("4_y2hvf")
+
+[node name="Interaction5" parent="Doors" instance=ExtResource("3_s4opr")]
+position = Vector2(1296, -119)
+script = ExtResource("4_y2hvf")
+
+[node name="Interaction6" parent="Doors" instance=ExtResource("3_s4opr")]
+position = Vector2(1392, -120)
+script = ExtResource("4_y2hvf")
+
+[node name="Interaction7" parent="Doors" instance=ExtResource("3_s4opr")]
+position = Vector2(1489, -121)
 script = ExtResource("4_y2hvf")
