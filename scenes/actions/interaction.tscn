@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccpk8eoidbsn0"]
+[gd_scene load_steps=7 format=3 uid="uid://ccpk8eoidbsn0"]
 
 [ext_resource type="Script" path="res://scenes/actions/interaction.gd" id="1_1oj1b"]
+[ext_resource type="AudioStream" uid="uid://becf1gfma6jh6" path="res://assets/sounds/locked_door.mp3" id="2_pettv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi41f"]
 size = Vector2(19.5, 13)
@@ -88,6 +89,10 @@ offset_right = 28.0
 theme_override_font_sizes/font_size = 13
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LockedDoorSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -7)
+stream = ExtResource("2_pettv")
 
 [connection signal="body_entered" from="Area2D" to="." method="_detect_entry"]
 [connection signal="body_exited" from="Area2D" to="." method="_detect_leave"]
