@@ -1,23 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://0jqucry7l44h"]
+[gd_scene load_steps=3 format=3 uid="uid://0jqucry7l44h"]
 
 [ext_resource type="Script" path="res://scenes/objects/light_pole_light/light_pole_light.gd" id="1_fqjbq"]
-[ext_resource type="Texture2D" uid="uid://c6o7nk4178ye6" path="res://icon.svg" id="2_lysj2"]
-[ext_resource type="Texture2D" uid="uid://ko7fselm4uwd" path="res://assets/maps/rpg_urban_pack.png" id="3_biqui"]
 [ext_resource type="Texture2D" uid="uid://bdni2imd7dc7d" path="res://assets/particles/muzzle_04.png" id="4_wgixv"]
 
 [node name="LightPoleLight" type="Node2D"]
 position = Vector2(319, 224)
 script = ExtResource("1_fqjbq")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-scale = Vector2(5.82812, 5.73438)
-texture = ExtResource("2_lysj2")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_biqui")
-hframes = 27
-vframes = 9
-frame = 83
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-7, -6)
