@@ -81,3 +81,6 @@ func _change_walk_animation(direction: Vector2, is_running: bool) -> void:
 			animation_player.seek(0.0, true)
 	
 	animation_player.speed_scale = 1.5 if is_running else 1.0
+	
+func _play_scream () -> void:
+	$Scream.play()

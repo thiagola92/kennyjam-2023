@@ -97,7 +97,7 @@ script = ExtResource("4_y2hvf")
 
 [node name="Interaction9" parent="Doors" instance=ExtResource("3_s4opr")]
 position = Vector2(401, -52)
-scale = Vector2(2, 2)
+scale = Vector2(0.403663, 11.0819)
 script = ExtResource("7_4reiv")
 
 [node name="Light Sources" type="Node2D" parent="."]
@@ -148,7 +148,7 @@ volume_db = -17.992
 autoplay = true
 
 [node name="BigMonster" parent="." instance=ExtResource("8_iamlh")]
-position = Vector2(120, -73)
+position = Vector2(140, 6)
 script = ExtResource("10_nayee")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
