@@ -200,7 +200,7 @@ horizontal_alignment = 1
 
 [node name="Thiago" type="Label" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Thiago Lages"
+text = "ThiagoLA92"
 horizontal_alignment = 1
 
 [node name="LeftGhost" type="Sprite2D" parent="."]
