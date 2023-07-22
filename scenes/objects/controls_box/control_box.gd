@@ -11,6 +11,7 @@ var first_run: bool = true
 var first_flashlight: bool = true
 var first_crucifix: bool = true
 var first_action: bool = true
+var first_drag: bool = true
 
 func _show_label (text: String, icon: String, time: float) -> void:
 	if tween:
@@ -59,4 +60,9 @@ func _verify_first_flashlight() -> void:
 func _verify_first_crucifix() -> void:
 	if first_crucifix:
 		first_crucifix = false
+		_hide_label()
+		
+func _verify_first_drag() -> void:
+	if first_drag:
+		first_drag = false
 		_hide_label()

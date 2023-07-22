@@ -5,13 +5,16 @@ var text_box: UIBox
 
 var _message_idx: int = 0
 var _messages: Array[Array] = [
-	["It's been weeks since we end up in this hell hole", 3],
+	["I can bearelly read the letter, the paper is old and it's dirty", 2],
+	["\"It's been weeks since we end up in this hell hole", 3],
 	["There are monsters everywhere, barely any food and, honestly, I think I'm starting to see things that don't exist", 7],
 	["We can't stay here much longer, we need to get out to find some food, water and medice for John, he won't make for much longer with that wound", 7],
 	["The cross helps to keep those things away, so we'll leave it at the wall to keep this place secure since our flashlights and suplements are stored here", 9],
 	["Alice said that there is a big building in the other part of town, with lights inside, we hope to find someone who can help us", 7],
 	["So we will barricade the window, hoping that nothing can get inside, and try to get to this building of sorts", 5],
-	["And may God have mercy on us", 2],
+	["And may God have mercy on us\"", 2],
+	["I think they are speaking about that window behind some cabinets, maybe it's worth to try drag them and go to the city", 5],
+	["Anything is better to stay here with that thing", 2]
 ]
 
 var started_script: bool = false
@@ -51,6 +54,9 @@ func show_text() -> void:
 		text_box._hide_label()
 		player.set_physics_process(true)
 		ended_script = true
+		
+		if ControlBox.first_drag:
+			ControlBox._show_label("Some objects can be dragged bu holding down E", "e_key", 1)
 		return
 		
 	var text_and_time: Array = _messages[_message_idx]
