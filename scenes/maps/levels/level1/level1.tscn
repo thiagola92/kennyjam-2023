@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg1ld77o6p4kr"]
+[gd_scene load_steps=12 format=3 uid="uid://cg1ld77o6p4kr"]
 
 [ext_resource type="Script" path="res://scenes/maps/levels/level1/level1.gd" id="1_lcmu8"]
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_uk3ia"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://c1s3ufplveco0" path="res://assets/sounds/city_background.mp3" id="6_xf0c0"]
 [ext_resource type="PackedScene" uid="uid://1udb4y56c6tt" path="res://scenes/monsters/big_monster.tscn" id="8_iamlh"]
 [ext_resource type="Script" path="res://scenes/monsters/monster_movment.gd" id="10_nayee"]
+[ext_resource type="PackedScene" uid="uid://d0j42x64fnnja" path="res://scenes/objects/star_particle/star_particle.tscn" id="11_oxthh"]
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
@@ -143,3 +144,9 @@ autoplay = true
 [node name="BigMonster" parent="." instance=ExtResource("8_iamlh")]
 position = Vector2(-310, -77)
 script = ExtResource("10_nayee")
+
+[node name="star_particle" parent="." instance=ExtResource("11_oxthh")]
+position = Vector2(1585, -98)
+
+[node name="star_particle2" parent="." instance=ExtResource("11_oxthh")]
+position = Vector2(-166, -88)

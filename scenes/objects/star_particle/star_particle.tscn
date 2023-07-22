@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0j42x64fnnja"]
+
+[ext_resource type="Texture2D" uid="uid://cbt7t0qnyqily" path="res://assets/particles/star.png" id="1_6gx6s"]
+
+[sub_resource type="Environment" id="Environment_i8wj4"]
+background_mode = 4
+ambient_light_source = 2
+ambient_light_color = Color(2, 2, 2, 1)
+glow_enabled = true
+glow_intensity = 8.0
+glow_strength = 2.0
+glow_blend_mode = 0
+glow_hdr_threshold = 1.5
+glow_map_strength = 1.0
+
+[node name="star_particle" type="Node2D"]
+modulate = Color(1.2, 1.2, 1.2, 1)
+top_level = true
+light_mask = 3
+scale = Vector2(0.2, 0.2)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i8wj4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(3, 3, 1.5, 1)
+scale = Vector2(0.2, 0.2)
+amount = 6
+explosiveness = 0.05
+randomness = 0.44
+fract_delta = false
+local_coords = true
+texture = ExtResource("1_6gx6s")
+emission_shape = 2
+emission_sphere_radius = 128.0
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
