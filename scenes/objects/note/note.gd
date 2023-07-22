@@ -45,6 +45,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
+		player.set_physics_process(true)
+		text_box._hide_label()
 		player = null
 		text_box = null
 
