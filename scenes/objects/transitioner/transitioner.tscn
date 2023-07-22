@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://brbiguot6pbyg"]
+
+[ext_resource type="Script" path="res://scenes/objects/transitioner/transitioner.gd" id="1_2malr"]
+
+[sub_resource type="Gradient" id="Gradient_72m0e"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.705128)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k76ia"]
+gradient = SubResource("Gradient_72m0e")
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_vd864"]
+resource_name = "Transition"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6x8sj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6yd3"]
+_data = {
+"RESET": SubResource("Animation_6x8sj"),
+"Transition": SubResource("Animation_vd864")
+}
+
+[node name="Transitioner" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2malr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+light_mask = 0
+layout_mode = 0
+offset_left = -13.0
+offset_top = -15.0
+offset_right = 51.0
+offset_bottom = 49.0
+scale = Vector2(10.5012, 8.02843)
+texture = SubResource("GradientTexture2D_k76ia")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f6yd3")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

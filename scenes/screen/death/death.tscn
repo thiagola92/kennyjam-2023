@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://c76514b33q0qn"]
+
+[ext_resource type="Texture2D" uid="uid://dijmtc3ewc0pn" path="res://assets/others/rich_cross.png" id="1_ggdxt"]
+[ext_resource type="PackedScene" uid="uid://r0u8b33fyt3m" path="res://scenes/objects/candle_light/candle_light.tscn" id="2_6q431"]
+[ext_resource type="Script" path="res://scenes/screen/death/Button.gd" id="3_nxgfq"]
+
+[sub_resource type="Animation" id="Animation_renhv"]
+resource_name = "dancing_lights"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("candle_light:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.52549), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_klf0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("candle_light:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r08xo"]
+_data = {
+"RESET": SubResource("Animation_klf0q"),
+"dancing_lights": SubResource("Animation_renhv")
+}
+
+[node name="Death" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -18.0
+offset_top = -13.0
+offset_right = 22.0
+offset_bottom = 27.0
+scale = Vector2(17.0411, 12.7381)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 253.0
+offset_top = 39.0
+offset_right = 381.0
+offset_bottom = 167.0
+texture = ExtResource("1_ggdxt")
+
+[node name="candle_light" parent="." instance=ExtResource("2_6q431")]
+position = Vector2(316, 65)
+scale = Vector2(3.52, 3.52)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r08xo")
+}
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 168.0
+offset_top = 170.0
+offset_right = 500.0
+offset_bottom = 213.0
+size_flags_horizontal = 6
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 29
+text = "You've been consumed."
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 54.0
+offset_top = 223.0
+offset_right = 600.0
+offset_bottom = 249.0
+text = "Another soul has been lost to the creature, would you like to try again?"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 221.0
+offset_top = 291.0
+offset_right = 430.0
+offset_bottom = 322.0
+text = "Return to Last Checkpoint"
+script = ExtResource("3_nxgfq")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

@@ -13,7 +13,9 @@ func _show_monster() -> void:
 
 func _detect_player(body: Node2D) -> void:
 	if body is Player:
-		print('catou o mané')
+		body._play_scream()
+		body.get_node("Transitioner")._transition()
+		body.get_node("Transitioner").visible = true
 
 func _play_cry () -> void:
 	get_node("Cry").play()

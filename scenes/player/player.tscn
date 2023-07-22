@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://citkhfbxb0erb"]
+[gd_scene load_steps=16 format=3 uid="uid://citkhfbxb0erb"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_g5hsq"]
 [ext_resource type="Texture2D" uid="uid://ko7fselm4uwd" path="res://assets/maps/rpg_urban_pack.png" id="2_av37q"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dtqm8runp1o6m" path="res://scenes/items/flashlight/flashlight.tscn" id="4_d0w0w"]
 [ext_resource type="PackedScene" uid="uid://qyaooic6ejhe" path="res://scenes/ui/game_ui.tscn" id="5_jqgt2"]
 [ext_resource type="PackedScene" uid="uid://dxu7i6cyv1rar" path="res://scenes/items/cross/cross.tscn" id="6_rmmm5"]
+[ext_resource type="PackedScene" uid="uid://brbiguot6pbyg" path="res://scenes/objects/transitioner/transitioner.tscn" id="7_77rjt"]
+[ext_resource type="AudioStream" uid="uid://2d6e1ddn6k7e" path="res://assets/sounds/SE/scream.mp3" id="8_i1dyb"]
 
 [sub_resource type="Animation" id="Animation_a6q5e"]
 length = 0.001
@@ -267,3 +269,16 @@ shape = SubResource("CircleShape2D_asvxe")
 [node name="Cross" parent="." instance=ExtResource("6_rmmm5")]
 visible = false
 position = Vector2(0, -11)
+
+[node name="Transitioner" parent="." instance=ExtResource("7_77rjt")]
+visible = false
+light_mask = 0
+z_as_relative = false
+y_sort_enabled = true
+offset_left = -314.0
+offset_top = -220.0
+offset_right = -314.0
+offset_bottom = -220.0
+
+[node name="Scream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_i1dyb")
