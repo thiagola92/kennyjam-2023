@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 
 var last_direction: Vector2
+var _first_walk: bool = true
 
 @export var movement_speed: int = 100
 
@@ -18,8 +19,9 @@ var last_direction: Vector2
 
 @onready var ui_box: UIBox = $UIBox
 
+@onready var control_box: ControlBox = $ControlBox
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:	
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	var is_running: bool = Input.is_action_pressed("run")
 	
@@ -48,15 +50,19 @@ func _unhandled_input(_event: InputEvent) -> void:
 func _change_walk_animation(direction: Vector2, is_running: bool) -> void:
 	match direction:
 		Vector2.DOWN:
+			_verify_first_walk()
 			animation_player.play("WalkDown")
 			last_direction = direction
 		Vector2.UP:
+			_verify_first_walk()
 			animation_player.play("WalkUp")
 			last_direction = direction
 		Vector2.LEFT:
+			_verify_first_walk()
 			animation_player.play("WalkLeft")
 			last_direction = direction
 		Vector2.RIGHT:
+			_verify_first_walk()
 			animation_player.play("WalkRight")
 			last_direction = direction
 		Vector2.ZERO:
@@ -64,3 +70,8 @@ func _change_walk_animation(direction: Vector2, is_running: bool) -> void:
 			animation_player.seek(0.0, true)
 	
 	animation_player.speed_scale = 1.5 if is_running else 1.0
+
+func _verify_first_walk () -> void:
+	if _first_walk:
+		control_box._hide_label()
+		_first_walk = false

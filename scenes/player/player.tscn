@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://citkhfbxb0erb"]
+[gd_scene load_steps=14 format=3 uid="uid://citkhfbxb0erb"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_g5hsq"]
 [ext_resource type="Texture2D" uid="uid://ko7fselm4uwd" path="res://assets/maps/rpg_urban_pack.png" id="2_av37q"]
 [ext_resource type="PackedScene" uid="uid://bcn0orgbn6j8h" path="res://scenes/objects/ui_box/ui_box.tscn" id="2_w2t0g"]
+[ext_resource type="PackedScene" uid="uid://dgk0854o4n4du" path="res://scenes/objects/controls_box/control_box.tscn" id="3_wepff"]
 [ext_resource type="PackedScene" uid="uid://dtqm8runp1o6m" path="res://scenes/items/flashlight/flashlight.tscn" id="4_d0w0w"]
 [ext_resource type="PackedScene" uid="uid://qyaooic6ejhe" path="res://scenes/ui/game_ui.tscn" id="5_jqgt2"]
 
@@ -231,6 +232,9 @@ game_ui = NodePath("GameUI")
 [node name="UIBox" parent="." instance=ExtResource("2_w2t0g")]
 process_physics_priority = 1
 position = Vector2(53, 142)
+
+[node name="ControlBox" parent="." instance=ExtResource("3_wepff")]
+position = Vector2(79, -138)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true

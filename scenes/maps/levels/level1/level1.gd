@@ -15,6 +15,7 @@ var _ended_script: bool = false
 @onready var player: Player = $Player
 
 @onready var text_box: UIBox = $Player.ui_box
+@onready var control_box: ControlBox = $Player.control_box
 
 func _ready() -> void:
 	player.set_physics_process(false)
@@ -33,6 +34,7 @@ func show_text() -> void:
 		text_box._hide_label()
 		player.set_physics_process(true)
 		_ended_script = true
+		control_box._show_label("Use WASD to walk", "wasd_keys", 1)
 		return
 
 	if _message_idx > 2:
