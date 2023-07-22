@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1udb4y56c6tt"]
+[gd_scene load_steps=8 format=3 uid="uid://1udb4y56c6tt"]
 
 [ext_resource type="Texture2D" uid="uid://cyh88vdpy7l0o" path="res://assets/particles/blackSmoke22.png" id="1_4swya"]
 [ext_resource type="Script" path="res://scenes/monsters/behaviour.gd" id="1_x0isd"]
@@ -42,6 +42,9 @@ _data = {
 "phasing": SubResource("Animation_lq8so")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_id1qh"]
+radius = 25.02
+
 [node name="BigMonster" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_x0isd")
@@ -70,4 +73,10 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_id1qh")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_detect_player"]
