@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ControlBox="*res://scenes/objects/controls_box/control_box.tscn"
+Checkpoint="*res://scenes/singleton/checkpoint.tscn"
 
 [display]
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvmy3o3bos2cj"]
+
+[ext_resource type="Script" path="res://scenes/singleton/checkpoint.gd" id="1_5y2fa"]
+
+[node name="Checkpoint" type="Node"]
+script = ExtResource("1_5y2fa")
