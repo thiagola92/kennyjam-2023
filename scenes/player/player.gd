@@ -13,6 +13,8 @@ var last_direction: Vector2
 
 @export var is_flashlight_enabled: bool = false
 
+@export var is_cross_enabled: bool = false
+
 @onready var ui_box: UIBox = $UIBox
 
 func _physics_process(_delta: float) -> void:	
