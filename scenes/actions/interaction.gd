@@ -1,9 +1,8 @@
 extends Node2D
 
-var player_on_area: bool = false
+@export var player_on_area: bool = false
 
 @export var label: Label
-
 
 func _detect_entry(body: Node2D) -> void:
 	if body is Player:

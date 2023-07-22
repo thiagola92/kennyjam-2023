@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cg1ld77o6p4kr"]
+[gd_scene load_steps=13 format=3 uid="uid://cg1ld77o6p4kr"]
 
 [ext_resource type="Script" path="res://scenes/maps/levels/level1/level1.gd" id="1_lcmu8"]
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_uk3ia"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/actions/door_interaction.gd" id="4_y2hvf"]
 [ext_resource type="PackedScene" uid="uid://0jqucry7l44h" path="res://scenes/objects/light_pole_light/light_pole_light.tscn" id="5_ys6r8"]
 [ext_resource type="AudioStream" uid="uid://c1s3ufplveco0" path="res://assets/sounds/city_background.mp3" id="6_xf0c0"]
+[ext_resource type="Script" path="res://scenes/actions/start_pursue.gd" id="7_4reiv"]
 [ext_resource type="PackedScene" uid="uid://1udb4y56c6tt" path="res://scenes/monsters/big_monster.tscn" id="8_iamlh"]
 [ext_resource type="Script" path="res://scenes/monsters/monster_movment.gd" id="10_nayee"]
 [ext_resource type="PackedScene" uid="uid://d0j42x64fnnja" path="res://scenes/objects/star_particle/star_particle.tscn" id="11_oxthh"]
@@ -41,7 +42,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-393187, 1179649, 8, -393186, 1179649, 8, -393185, 1179649, 8, -393184, 1179649, 8, -393183, 1179649, 8, -393182, 1179649, 8, -393181, 1179649, 8, -393180, 1179649, 8, -393179, 1179649, 8, -393188, 1114113, 8, -393178, 1114113, 8, -327660, 327681, 8, -327656, 327681, 8, -327659, 393217, 8, -327657, 393217, 8, -524268, 262145, 13, -524267, 327681, 13, -524266, 327681, 13, -524265, 327681, 13, -524264, 393217, 13, -327665, 393217, 8, -327664, 393217, 8, -720850, 1376257, 16, -720849, 1441793, 16, -131076, 131073, 6, -196606, 196609, 6, -196585, 196609, 6, -196571, 131073, 6, -196559, 327681, 6, -917468, 131073, 65542, -917454, 262145, 6, -720866, 196609, 6, -131022, 65537, 7, -131041, 65537, 7, -131058, 65537, 7, -65537, 65537, 7, -655327, 327681, 8, -655326, 327681, 8, -982997, 393217, 8, -982996, 393217, 8, -655339, 1179649, 8, -655337, 1179649, 8, -655338, 1179649, 8)
+layer_3/tile_data = PackedInt32Array(-393187, 1179649, 8, -393186, 1179649, 8, -393185, 1179649, 8, -393184, 1179649, 8, -393183, 1179649, 8, -393182, 1179649, 8, -393181, 1179649, 8, -393180, 1179649, 8, -393179, 1179649, 8, -393188, 1114113, 8, -393178, 1114113, 8, -327660, 327681, 8, -327656, 327681, 8, -327659, 393217, 8, -327657, 393217, 8, -524268, 262145, 13, -524267, 327681, 13, -524266, 327681, 13, -524265, 327681, 13, -524264, 393217, 13, -327665, 393217, 8, -327664, 393217, 8, -720850, 1376257, 16, -720849, 1441793, 16, -131076, 131073, 6, -196606, 196609, 6, -196585, 196609, 6, -196571, 131073, 6, -917468, 131073, 65542, -917454, 262145, 6, -720866, 196609, 6, -131022, 65537, 7, -131041, 65537, 7, -131058, 65537, 7, -65537, 65537, 7, -655327, 327681, 8, -655326, 327681, 8, -982997, 393217, 8, -982996, 393217, 8, -655339, 1179649, 8, -655337, 1179649, 8, -655338, 1179649, 8, -196596, 327681, 6)
 layer_4/name = "decorations 2"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
@@ -94,6 +95,11 @@ script = ExtResource("4_e7lbt")
 position = Vector2(913, -346)
 script = ExtResource("4_y2hvf")
 
+[node name="Interaction9" parent="Doors" instance=ExtResource("3_s4opr")]
+position = Vector2(401, -52)
+scale = Vector2(2, 2)
+script = ExtResource("7_4reiv")
+
 [node name="Light Sources" type="Node2D" parent="."]
 
 [node name="LightPoleLight" parent="Light Sources" instance=ExtResource("5_ys6r8")]
@@ -136,19 +142,19 @@ intervals = Array[float]([0.22, 1.0, 1.5, 0.35])
 energy = 0.9
 blend_mode = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_xf0c0")
 volume_db = -17.992
 autoplay = true
 
 [node name="BigMonster" parent="." instance=ExtResource("8_iamlh")]
-position = Vector2(-310, -77)
+position = Vector2(120, -73)
 script = ExtResource("10_nayee")
 
-[node name="star_particle" parent="." instance=ExtResource("11_oxthh")]
-position = Vector2(1585, -98)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
-[node name="star_particle2" parent="CanvasLayer" instance=ExtResource("11_oxthh")]
-position = Vector2(-166, -88)
+[node name="star_particle" parent="CanvasLayer" instance=ExtResource("11_oxthh")]
+z_index = 5
+z_as_relative = false
+position = Vector2(401, -97)
