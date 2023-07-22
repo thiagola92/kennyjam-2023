@@ -5,10 +5,10 @@ extends Node2D
 
 @export var msg: Label
 
-func _show_label (text: String) -> void:
+func _show_label (text: String, time: float) -> void:
 	msg.text = text
 	var tween = get_tree().create_tween().bind_node(self)
-	tween.tween_property(msg, "visible_ratio", 1.0, 3)
+	tween.tween_property(msg, "visible_ratio", 1.0, time)
 	label_showing = true
 	
 func _hide_label () -> void:
