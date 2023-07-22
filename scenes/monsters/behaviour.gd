@@ -17,3 +17,9 @@ func _detect_player(body: Node2D) -> void:
 
 func _play_cry () -> void:
 	get_node("Cry").play()
+	
+func _play_knock () -> void:
+	get_node("Knock").play()
+
+func _stop_knock () -> void:
+	get_node("Knock").stop()
