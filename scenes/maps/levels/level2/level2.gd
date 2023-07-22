@@ -12,3 +12,10 @@ func _on_body_enter(body: Node2D) -> void:
 func _on_body_leave(body: Node2D) -> void:
 	if body is Player:
 		text_box._hide_label()
+
+
+func _on_timer_timeout() -> void:
+	var monster = get_node("BigMonster")
+	monster._show_monster()
+	monster._stop_knock()
+	monster._play_cry()

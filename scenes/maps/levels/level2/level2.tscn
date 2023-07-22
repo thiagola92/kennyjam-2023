@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfhtr4udtwv4f"]
+[gd_scene load_steps=16 format=3 uid="uid://cfhtr4udtwv4f"]
 
 [ext_resource type="Script" path="res://scenes/maps/levels/level2/level2.gd" id="1_i8qa6"]
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_jmth1"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://hmo8uwbx841y" path="res://scenes/objects/box/box.tscn" id="8_uuglv"]
 [ext_resource type="PackedScene" uid="uid://d0j42x64fnnja" path="res://scenes/objects/star_particle/star_particle.tscn" id="9_j0yco"]
 [ext_resource type="PackedScene" uid="uid://bpirph6jbkhhr" path="res://scenes/objects/note/note.tscn" id="10_c0lv7"]
+[ext_resource type="PackedScene" uid="uid://1udb4y56c6tt" path="res://scenes/monsters/big_monster.tscn" id="12_1mxx4"]
+[ext_resource type="Script" path="res://scenes/monsters/monster_movment.gd" id="13_pc6c2"]
+[ext_resource type="AudioStream" uid="uid://cm0gb5n0c4q4l" path="res://assets/sounds/BGS/music_zapsplat_haunted_staircase.mp3" id="14_cj4o5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shlu3"]
 size = Vector2(38, 25)
@@ -142,5 +145,19 @@ offset_right = 833.0
 offset_bottom = 355.0
 color = Color(0, 0, 0, 1)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="BigMonster" parent="." instance=ExtResource("12_1mxx4")]
+z_index = 6
+position = Vector2(17, 74)
+script = ExtResource("13_pc6c2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_cj4o5")
+volume_db = -17.992
+autoplay = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_enter"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_body_leave"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

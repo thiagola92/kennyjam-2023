@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scenes/actions/door_interaction_locked.gd" id="4_e7lbt"]
 [ext_resource type="Script" path="res://scenes/actions/door_interaction.gd" id="4_y2hvf"]
 [ext_resource type="PackedScene" uid="uid://0jqucry7l44h" path="res://scenes/objects/light_pole_light/light_pole_light.tscn" id="5_ys6r8"]
-[ext_resource type="AudioStream" uid="uid://c1s3ufplveco0" path="res://assets/sounds/city_background.mp3" id="6_xf0c0"]
+[ext_resource type="AudioStream" uid="uid://c1s3ufplveco0" path="res://assets/sounds/BGS/city_background.mp3" id="6_xf0c0"]
 [ext_resource type="Script" path="res://scenes/actions/start_pursue.gd" id="7_4reiv"]
 [ext_resource type="PackedScene" uid="uid://1udb4y56c6tt" path="res://scenes/monsters/big_monster.tscn" id="8_iamlh"]
 [ext_resource type="Script" path="res://scenes/monsters/monster_movment.gd" id="10_nayee"]

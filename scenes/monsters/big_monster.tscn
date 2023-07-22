@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://1udb4y56c6tt"]
+[gd_scene load_steps=10 format=3 uid="uid://1udb4y56c6tt"]
 
 [ext_resource type="Texture2D" uid="uid://cyh88vdpy7l0o" path="res://assets/particles/blackSmoke22.png" id="1_4swya"]
 [ext_resource type="Script" path="res://scenes/monsters/behaviour.gd" id="1_x0isd"]
 [ext_resource type="Texture2D" uid="uid://bg1fgefugcr0" path="res://assets/monsters/ghost.png" id="2_c5k5s"]
-[ext_resource type="AudioStream" uid="uid://drkpefkhluk0n" path="res://assets/sounds/horror_breath.mp3" id="4_gcl5q"]
+[ext_resource type="AudioStream" uid="uid://drkpefkhluk0n" path="res://assets/sounds/SE/horror_breath.mp3" id="4_gcl5q"]
+[ext_resource type="AudioStream" uid="uid://d1avo17gynfm2" path="res://assets/sounds/SE/knock_on_door.mp3" id="5_0k3ke"]
 
 [sub_resource type="Animation" id="Animation_7i35c"]
 length = 0.001
@@ -76,5 +77,8 @@ shape = SubResource("CircleShape2D_id1qh")
 
 [node name="Cry" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_gcl5q")
+
+[node name="Knock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0k3ke")
 
 [connection signal="body_entered" from="Area2D" to="." method="_detect_player"]
