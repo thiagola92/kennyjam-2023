@@ -34,6 +34,7 @@ func _execute_action () -> void:
 	monster = parent_node.get_node("BigMonster")
 	text_box = player.get_node("UIBox")
 	
+	parent_node.get_node("CanvasLayer").visible = false
 	player.set_physics_process(false)
 	show_text()
 
