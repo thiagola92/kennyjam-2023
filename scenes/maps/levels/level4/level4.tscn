@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://3trk30ok2nyy"]
+
+[ext_resource type="Script" path="res://scenes/maps/levels/level4/level4.gd" id="1_2k80b"]
+[ext_resource type="PackedScene" uid="uid://bld3ugk8ghfek" path="res://scenes/maps/tilemaps/rpg_roguelike_pack.tscn" id="1_daoyp"]
+[ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="2_lr0i3"]
+[ext_resource type="Texture2D" uid="uid://cr5f1tkbvc7fo" path="res://assets/maps/tiles/wood.png" id="4_vm70q"]
+[ext_resource type="PackedScene" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="5_lrn3m"]
+
+[node name="Level4" type="Node2D"]
+script = ExtResource("1_2k80b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("4_vm70q")
+region_enabled = true
+region_rect = Rect2(0, 0, 722.434, 416.461)
+
+[node name="RPGRoguelikePack" parent="." instance=ExtResource("1_daoyp")]
+
+[node name="Player" parent="." instance=ExtResource("2_lr0i3")]
+
+[node name="RPGRoguelikeIndoors" parent="." instance=ExtResource("5_lrn3m")]
