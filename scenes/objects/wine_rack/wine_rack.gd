@@ -14,6 +14,7 @@ func _physics_process(delta: float) -> void:
 	set_collision_layer_value(1, true)
 	
 	if Input.is_action_pressed("interaction"):
+		ControlBox._verify_first_drag()
 		var direction_to_player = global_position.direction_to(player.global_position)
 		var angle_from_looking = player.last_direction.angle_to(direction_to_player)
 		var angle_deg = abs(rad_to_deg(angle_from_looking))

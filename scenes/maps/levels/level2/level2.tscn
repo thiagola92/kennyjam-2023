@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfhtr4udtwv4f"]
+[gd_scene load_steps=18 format=3 uid="uid://cfhtr4udtwv4f"]
 
 [ext_resource type="Script" path="res://scenes/maps/levels/level2/level2.gd" id="1_i8qa6"]
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_jmth1"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://1udb4y56c6tt" path="res://scenes/monsters/big_monster.tscn" id="12_1mxx4"]
 [ext_resource type="Script" path="res://scenes/monsters/monster_movment.gd" id="13_pc6c2"]
 [ext_resource type="AudioStream" uid="uid://cm0gb5n0c4q4l" path="res://assets/sounds/BGS/music_zapsplat_haunted_staircase.mp3" id="14_cj4o5"]
+[ext_resource type="PackedScene" uid="uid://ccpk8eoidbsn0" path="res://scenes/actions/interaction.tscn" id="15_8anu2"]
+[ext_resource type="Script" path="res://scenes/actions/interaction_window.gd" id="16_pl16c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shlu3"]
 size = Vector2(38, 25)
@@ -157,6 +159,11 @@ script = ExtResource("13_pc6c2")
 stream = ExtResource("14_cj4o5")
 volume_db = -17.992
 autoplay = true
+
+[node name="Interaction" parent="." instance=ExtResource("15_8anu2")]
+position = Vector2(2, -284)
+scale = Vector2(2.44, 4.68)
+script = ExtResource("16_pl16c")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_enter"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_body_leave"]
