@@ -56,7 +56,7 @@ func show_text() -> void:
 		ended_script = true
 		
 		if ControlBox.first_drag:
-			ControlBox._show_label("Some objects can be dragged bu holding down E", "e_key", 1)
+			ControlBox._show_label("Some objects can be dragged by holding down E", "e_key", 1)
 		return
 		
 	var text_and_time: Array = _messages[_message_idx]

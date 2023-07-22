@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdtmqh63y5y6p"]
+
+[ext_resource type="Texture2D" uid="uid://ko7fselm4uwd" path="res://assets/maps/rpg_urban_pack.png" id="1_g1nh3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StrangeShadow" type="Sprite2D" parent="."]
+modulate = Color(0.0313726, 0.0509804, 0.0470588, 1)
+texture = ExtResource("1_g1nh3")
+hframes = 4
+vframes = 3
+region_enabled = true
+region_rect = Rect2(736, 0, 128, 96)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
