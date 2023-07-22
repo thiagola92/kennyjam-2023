@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://r0u8b33fyt3m"]
+
+[node name="candle_light" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
