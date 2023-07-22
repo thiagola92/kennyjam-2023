@@ -8,7 +8,9 @@ extends CharacterBody2D
 
 @export var flashlight: Flashlight
 
-var is_flashlight_enabled: bool = false
+@export var game_ui: GameUI
+
+var is_flashlight_enabled: bool = true
 
 
 func _physics_process(_delta: float) -> void:
@@ -31,7 +33,10 @@ func _physics_process(_delta: float) -> void:
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("flashlight") and is_flashlight_enabled:
-		flashlight.toggle()
+		if flashlight.toggle():
+			game_ui.change_item(game_ui.FLASHLIGHT)
+		else:
+			game_ui.remove_item()
 
 
 func _change_walk_animation(direction: Vector2, is_running: bool) -> void:
