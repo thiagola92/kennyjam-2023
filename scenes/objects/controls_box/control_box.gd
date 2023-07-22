@@ -50,3 +50,13 @@ func _verify_first_action() -> void:
 	if first_action:
 		first_action = false
 		_hide_label()
+		
+func _verify_first_flashlight() -> void:
+	if first_flashlight:
+		first_flashlight = false
+		_hide_label()
+
+func _verify_first_crucifix() -> void:
+	if first_crucifix:
+		first_crucifix = false
+		_hide_label()

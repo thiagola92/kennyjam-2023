@@ -41,6 +41,7 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("flashlight") and is_flashlight_enabled:
 		if flashlight.toggle():
+			ControlBox._verify_first_flashlight()
 			game_ui.change_to_flashlight()
 			cross.visible = false
 		else:
@@ -48,6 +49,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			
 	if Input.is_action_just_pressed("cross") and is_cross_enabled:
 		if cross.toggle():
+			ControlBox._verify_first_crucifix()
 			game_ui.change_to_cross()
 			flashlight.visible = false
 		else:
