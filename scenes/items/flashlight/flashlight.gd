@@ -6,4 +6,4 @@ extends Node2D
 
 
 func toggle() -> void:
-	point_light.visible = not point_light.visible
+	visible = not visible
