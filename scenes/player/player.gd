@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 @export var game_ui: GameUI
 
-var is_flashlight_enabled: bool = true
+@export var is_flashlight_enabled: bool = false
 
 
 func _physics_process(_delta: float) -> void:

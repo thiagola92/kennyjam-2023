@@ -227,6 +227,7 @@ script = ExtResource("1_g5hsq")
 animation_player = NodePath("AnimationPlayer")
 flashlight = NodePath("Flashlight")
 game_ui = NodePath("GameUI")
+is_flashlight_enabled = false
 
 [node name="UIBox" parent="." instance=ExtResource("2_w2t0g")]
 process_physics_priority = 1
