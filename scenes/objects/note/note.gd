@@ -18,13 +18,16 @@ var started_script: bool = false
 var ended_script: bool = false
 
 func _process(delta: float) -> void:
-	if not ended_script and player and Input.is_action_just_pressed("interaction") and text_box.label_showing:
+	if not started_script and player and Input.is_action_just_pressed("interaction") and not text_box.label_showing:
+		_remove_sparkles()
+	elif not ended_script and player and Input.is_action_just_pressed("interaction") and text_box.label_showing:
 		_message_idx += 1
 		show_text()
-
-func _unhandled_input(event: InputEvent) -> void:
-	if player and Input.is_action_just_pressed("interaction") and not text_box.label_showing:
-		_remove_sparkles()
+	elif started_script and ended_script and player and Input.is_action_just_pressed("interaction") and not text_box.label_showing:
+		_message_idx = 0
+		ended_script = false
+		player.set_physics_process(false)
+		show_text()
 
 func _remove_sparkles () -> void:
 	get_parent().get_node("CanvasLayer/star_particle2").visible = false
@@ -44,9 +47,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func show_text() -> void:
 	# No more texts
-	print('show')
 	if _message_idx >= _messages.size():
-		print('end')
 		text_box._hide_label()
 		player.set_physics_process(true)
 		ended_script = true
@@ -56,6 +57,4 @@ func show_text() -> void:
 	var text: String = text_and_time[0]
 	var time: float = text_and_time[1]
 	
-	print(text)
-	print(time)
 	text_box._show_label(text, time)
