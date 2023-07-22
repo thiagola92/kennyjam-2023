@@ -265,3 +265,4 @@ shape = SubResource("CircleShape2D_asvxe")
 
 [node name="Cross" parent="." instance=ExtResource("6_rmmm5")]
 visible = false
+position = Vector2(0, -11)
