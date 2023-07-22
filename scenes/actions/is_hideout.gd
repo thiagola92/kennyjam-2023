@@ -11,9 +11,6 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	var random_number = rng.randf_range(0, 1)
 	is_hideout = random_number <= percent_hideout
-	
-	print(random_number)
-	print(is_hideout)
 
 
 func _detect_entry(body: Node2D) -> void:

@@ -7,10 +7,18 @@ extends CharacterBody2D
 
 @export var player: Player
 
+var x = [-4514, 2169]
+var y = [1760, -1143]
+
+var current_random_position: Vector2
 
 func _process(delta: float) -> void:
-	if player:
+	if player and player.visible:
 		$NavigationAgent2D.target_position = player.global_position
+	else:
+		if not current_random_position:
+			_on_timer_timeout()
+		$NavigationAgent2D.target_position = current_random_position
 
 
 func _physics_process(delta: float) -> void:
@@ -30,3 +38,7 @@ func _detect_player(body: Node2D) -> void:
 
 func _play_cry () -> void:
 	get_node("Cry").play()
+
+
+func _on_timer_timeout() -> void:
+	current_random_position = Vector2(randf_range(x[0], x[1]), randf_range(y[0], y[1]))
