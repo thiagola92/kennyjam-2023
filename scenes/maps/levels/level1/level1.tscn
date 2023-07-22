@@ -101,6 +101,7 @@ scale = Vector2(2, 2)
 script = ExtResource("7_4reiv")
 
 [node name="Light Sources" type="Node2D" parent="."]
+visible = false
 
 [node name="LightPoleLight" parent="Light Sources" instance=ExtResource("5_ys6r8")]
 position = Vector2(-119, -74)
