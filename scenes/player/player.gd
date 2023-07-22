@@ -5,6 +5,8 @@ var last_direction: Vector2
 
 @export var movement_speed: int = 100
 
+@export var movement_debuff: float = 1.0
+
 @export var animation_player: AnimationPlayer
 
 @export var flashlight: Flashlight
@@ -29,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 	if direction.length() > 1:
 		direction = direction.normalized()
 		
-	velocity = direction * movement_speed
+	velocity = direction * movement_speed * movement_debuff
 	
 	if is_running:
 		ControlBox._verify_first_run()
