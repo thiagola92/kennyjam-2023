@@ -14,6 +14,7 @@ func _show_monster() -> void:
 func _detect_player(body: Node2D) -> void:
 	if body is Player:
 		body._play_scream()
+		body.set_physics_process(false)
 		body.get_node("Transitioner")._transition()
 		body.get_node("Transitioner").visible = true
 
