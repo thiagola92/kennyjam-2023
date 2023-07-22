@@ -40,11 +40,14 @@ func _physics_process(_delta: float) -> void:
 
 
 func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("flashlight") and is_flashlight_enabled:
-		if flashlight.toggle():
-			game_ui.change_item(game_ui.FLASHLIGHT)
-		else:
-			game_ui.remove_item()
+	if Input.is_action_just_pressed("flashlight"):
+		if is_flashlight_enabled:
+			if flashlight.toggle():
+				game_ui.change_item(game_ui.FLASHLIGHT)
+			else:
+				game_ui.remove_item()
+		elif is_cross_enabled:
+			pass
 
 
 func _change_walk_animation(direction: Vector2, is_running: bool) -> void:
