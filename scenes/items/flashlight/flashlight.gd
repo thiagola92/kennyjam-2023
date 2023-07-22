@@ -1,8 +1,5 @@
 class_name Flashlight
-extends Node2D
-
-
-@export var point_light: PointLight2D
+extends PointLight2D
 
 
 func toggle() -> void:

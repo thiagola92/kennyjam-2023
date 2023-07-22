@@ -3,13 +3,9 @@
 [ext_resource type="Script" path="res://scenes/items/flashlight/flashlight.gd" id="1_7fl2b"]
 [ext_resource type="Texture2D" uid="uid://bro377u7enbqu" path="res://assets/particles/lamp_shade_without_point.png" id="2_46p10"]
 
-[node name="Flashlight" type="Node2D" node_paths=PackedStringArray("point_light")]
-script = ExtResource("1_7fl2b")
-point_light = NodePath("PointLight2D")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-rotation = 1.5708
+[node name="Flashlight" type="PointLight2D"]
 scale = Vector2(0.148356, 0.0651759)
 shadow_enabled = true
 texture = ExtResource("2_46p10")
 offset = Vector2(0, 640)
+script = ExtResource("1_7fl2b")

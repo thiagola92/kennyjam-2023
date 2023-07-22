@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 @export var flashlight: Flashlight
 
+var is_flashlight_enabled: bool = false
+
 
 func _physics_process(_delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
@@ -28,7 +30,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("flashlight") and flashlight:
+	if Input.is_action_just_pressed("flashlight") and is_flashlight_enabled:
 		flashlight.toggle()
 
 
