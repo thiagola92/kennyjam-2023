@@ -15,6 +15,10 @@ run/main_scene="res://scenes/screen/main/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ControlBox="*res://scenes/objects/controls_box/control_box.tscn"
+
 [display]
 
 window/size/viewport_width=640

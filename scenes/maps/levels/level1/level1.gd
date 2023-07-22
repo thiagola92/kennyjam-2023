@@ -15,7 +15,6 @@ var _ended_script: bool = false
 @onready var player: Player = $Player
 
 @onready var text_box: UIBox = $Player.ui_box
-@onready var control_box: ControlBox = $Player.control_box
 
 func _ready() -> void:
 	player.set_physics_process(false)
@@ -24,17 +23,21 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if not _ended_script and Input.is_action_just_pressed("interaction") and text_box.label_showing:
+		ControlBox._verify_first_action()
 		_message_idx += 1
 		show_text()
 
 
 func show_text() -> void:
+	if _message_idx == 0:
+		ControlBox._show_label("You can skip to the next text or interact with things using E", "e_key", 1)
+	
 	# No more texts
 	if _message_idx >= _messages.size():
 		text_box._hide_label()
 		player.set_physics_process(true)
 		_ended_script = true
-		control_box._show_label("Use WASD to walk", "wasd_keys", 1)
+		ControlBox._show_label("Use WASD to walk", "wasd_keys", 1)
 		return
 
 	if _message_idx > 2:
