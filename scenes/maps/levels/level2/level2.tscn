@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfhtr4udtwv4f"]
+[gd_scene load_steps=8 format=3 uid="uid://cfhtr4udtwv4f"]
 
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_jmth1"]
 [ext_resource type="PackedScene" uid="uid://bld3ugk8ghfek" path="res://scenes/maps/tilemaps/rpg_roguelike_pack.tscn" id="2_dsuvj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="4_m76e0"]
 [ext_resource type="Script" path="res://scenes/maps/tilemaps/wine_rack_1.gd" id="4_n35df"]
 [ext_resource type="PackedScene" uid="uid://r0u8b33fyt3m" path="res://scenes/objects/candle_light/candle_light.tscn" id="5_app88"]
+[ext_resource type="PackedScene" uid="uid://st0dlgxpx4qe" path="res://scenes/objects/wine_rack/wine_rack.tscn" id="7_4tyn1"]
 
 [node name="level2" type="Node2D"]
 y_sort_enabled = true
@@ -70,8 +71,10 @@ script = ExtResource("4_n35df")
 [node name="Player" parent="." instance=ExtResource("4_m76e0")]
 z_index = 1
 position = Vector2(0, 1)
+is_flashlight_enabled = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 energy = 0.9
 blend_mode = 1
 
@@ -80,3 +83,9 @@ position = Vector2(-307, -84)
 
 [node name="candle_light2" parent="." instance=ExtResource("5_app88")]
 position = Vector2(174, -75)
+
+[node name="WineRack2" parent="." instance=ExtResource("7_4tyn1")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(52, -195)
+lock_rotation = true

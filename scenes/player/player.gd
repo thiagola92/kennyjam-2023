@@ -12,6 +12,8 @@ extends CharacterBody2D
 
 @export var is_flashlight_enabled: bool = false
 
+var last_direction: Vector2
+
 
 func _physics_process(_delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
@@ -22,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 	# For people using joystick
 	if direction.length() > 1:
 		direction = direction.normalized()
-	
+		
 	velocity = direction * movement_speed
 	
 	if is_running:
@@ -43,12 +45,16 @@ func _change_walk_animation(direction: Vector2, is_running: bool) -> void:
 	match direction:
 		Vector2.DOWN:
 			animation_player.play("WalkDown")
+			last_direction = direction
 		Vector2.UP:
 			animation_player.play("WalkUp")
+			last_direction = direction
 		Vector2.LEFT:
 			animation_player.play("WalkLeft")
+			last_direction = direction
 		Vector2.RIGHT:
 			animation_player.play("WalkRight")
+			last_direction = direction
 		Vector2.ZERO:
 			animation_player.stop()
 			animation_player.seek(0.0, true)
