@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var movement_speed: int = 140
+@export var movement_speed: int = 170
 
 @export var follow_player: bool = false
 
@@ -9,7 +9,8 @@ extends CharacterBody2D
 
 
 func _process(delta: float) -> void:
-	pass
+	if player:
+		$NavigationAgent2D.target_position = player.global_position
 
 
 func _physics_process(delta: float) -> void:
@@ -29,8 +30,3 @@ func _detect_player(body: Node2D) -> void:
 
 func _play_cry () -> void:
 	get_node("Cry").play()
-
-
-func _on_timer_timeout() -> void:
-	if player:
-		$NavigationAgent2D.target_position = player.global_position
