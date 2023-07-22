@@ -55,10 +55,12 @@ texture_region_size = Vector2i(32, 32)
 15:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:0/0/physics_layer_0/angular_velocity = 0.0
 16:0/0 = 0
+16:0/0/y_sort_origin = 7
 16:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:0/0/physics_layer_0/angular_velocity = 0.0
 16:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 6, 4, 2, 14, -4, 14)
 17:0/0 = 0
+17:0/0/y_sort_origin = 7
 17:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:0/0/physics_layer_0/angular_velocity = 0.0
 17:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 6, 4, 2, 14, -4, 14)
@@ -488,6 +490,7 @@ texture_region_size = Vector2i(32, 32)
 26:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 26:6/0/physics_layer_0/angular_velocity = 0.0
 0:7/0 = 0
+0:7/0/y_sort_origin = 5
 0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:7/0/physics_layer_0/angular_velocity = 0.0
 0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -2, 10, -2, 10, 16, 4, 16, 4, 14, -4, 14, -4, 16, -10, 16)
@@ -1598,5 +1601,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wrmwt")
 
 [node name="RPGRoguelikeIndoors" type="TileMap"]
+y_sort_enabled = true
 tile_set = SubResource("TileSet_mp05h")
 format = 2
