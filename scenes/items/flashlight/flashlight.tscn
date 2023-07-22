@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bro377u7enbqu" path="res://assets/particles/lamp_shade_without_point.png" id="2_46p10"]
 
 [node name="Flashlight" type="PointLight2D"]
-scale = Vector2(0.148356, 0.0651759)
+scale = Vector2(0.148356, 0.145176)
 shadow_enabled = true
 texture = ExtResource("2_46p10")
 offset = Vector2(0, 640)
