@@ -1,13 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcn0orgbn6j8h"]
+[gd_scene load_steps=7 format=3 uid="uid://bcn0orgbn6j8h"]
 
 [ext_resource type="Script" path="res://scenes/objects/ui_box/ui_box.gd" id="1_djnl8"]
+[ext_resource type="Texture2D" uid="uid://cltom5mkkcr72" path="res://assets/ui/down_arrow.png" id="2_u0yqv"]
 
 [sub_resource type="Theme" id="Theme_m7s83"]
+
+[sub_resource type="Animation" id="Animation_58pd2"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_urrfb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcgke"]
+_data = {
+"RESET": SubResource("Animation_urrfb"),
+"blink": SubResource("Animation_58pd2")
+}
 
 [node name="UIBox" type="Node2D" node_paths=PackedStringArray("msg")]
 position = Vector2(252, 73)
 script = ExtResource("1_djnl8")
-msg = NodePath("CanvasLayer/VBoxContainer/Text")
+msg = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Text")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -21,9 +59,14 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
 
-[node name="Text" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Text" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 10
 theme = SubResource("Theme_m7s83")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -36,3 +79,13 @@ autowrap_mode = 2
 text_overrun_behavior = 3
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_u0yqv")
+stretch_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xcgke")
+}
