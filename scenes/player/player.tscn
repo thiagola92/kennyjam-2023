@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://citkhfbxb0erb"]
+[gd_scene load_steps=14 format=3 uid="uid://citkhfbxb0erb"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_g5hsq"]
 [ext_resource type="Texture2D" uid="uid://ko7fselm4uwd" path="res://assets/maps/rpg_urban_pack.png" id="2_av37q"]
 [ext_resource type="PackedScene" uid="uid://bcn0orgbn6j8h" path="res://scenes/objects/ui_box/ui_box.tscn" id="2_w2t0g"]
 [ext_resource type="PackedScene" uid="uid://dtqm8runp1o6m" path="res://scenes/items/flashlight/flashlight.tscn" id="4_d0w0w"]
 [ext_resource type="PackedScene" uid="uid://qyaooic6ejhe" path="res://scenes/ui/game_ui.tscn" id="5_jqgt2"]
+[ext_resource type="PackedScene" uid="uid://dxu7i6cyv1rar" path="res://scenes/items/cross/cross.tscn" id="6_rmmm5"]
 
 [sub_resource type="Animation" id="Animation_a6q5e"]
 length = 0.001
@@ -221,11 +222,12 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_asvxe"]
 radius = 6.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player", "flashlight", "game_ui")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player", "flashlight", "cross", "game_ui")]
 y_sort_enabled = true
 script = ExtResource("1_g5hsq")
 animation_player = NodePath("AnimationPlayer")
 flashlight = NodePath("Flashlight")
+cross = NodePath("Cross")
 game_ui = NodePath("GameUI")
 
 [node name="UIBox" parent="." instance=ExtResource("2_w2t0g")]
@@ -260,3 +262,6 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_asvxe")
 
 [node name="GameUI" parent="." instance=ExtResource("5_jqgt2")]
+
+[node name="Cross" parent="." instance=ExtResource("6_rmmm5")]
+visible = false
