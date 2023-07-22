@@ -4,15 +4,27 @@
 
 [sub_resource type="Theme" id="Theme_m7s83"]
 
-[node name="UIBox" type="Node2D"]
+[node name="UIBox" type="Node2D" node_paths=PackedStringArray("msg")]
 position = Vector2(252, 73)
 script = ExtResource("1_djnl8")
+msg = NodePath("CanvasLayer/VBoxContainer/Text")
 
-[node name="Text" type="Label" parent="."]
-offset_left = -240.0
-offset_top = -36.0
-offset_right = 139.0
-offset_bottom = 19.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="Text" type="Label" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 10
 theme = SubResource("Theme_m7s83")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
