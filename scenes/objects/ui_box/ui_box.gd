@@ -9,6 +9,7 @@ var tween: Tween
 
 
 func _show_label (text: String, time: float) -> void:
+	print('a')
 	if tween:
 		tween.kill()
 	
@@ -21,6 +22,7 @@ func _show_label (text: String, time: float) -> void:
 	$AnimationPlayer.play("blink")
 
 	label_showing = true
+	print('b')
 	
 func _hide_label () -> void:
 	if tween:

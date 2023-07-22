@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpirph6jbkhhr"]
+
+[ext_resource type="Texture2D" uid="uid://2eysw65qvwsy" path="res://assets/others/note.png" id="1_vckr4"]
+[ext_resource type="Script" path="res://scenes/objects/note/note.gd" id="1_y2el0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqt3n"]
+size = Vector2(34, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muer3"]
+size = Vector2(24.2687, 27.7357)
+
+[node name="Note" type="StaticBody2D"]
+script = ExtResource("1_y2el0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vckr4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_vqt3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2.38419e-07)
+scale = Vector2(0.576874, 0.576874)
+shape = SubResource("RectangleShape2D_muer3")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

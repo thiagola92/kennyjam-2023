@@ -232,6 +232,7 @@ game_ui = NodePath("GameUI")
 
 [node name="UIBox" parent="." instance=ExtResource("2_w2t0g")]
 process_physics_priority = 1
+z_index = 5
 position = Vector2(53, 142)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

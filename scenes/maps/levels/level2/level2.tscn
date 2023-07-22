@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfhtr4udtwv4f"]
+[gd_scene load_steps=13 format=3 uid="uid://cfhtr4udtwv4f"]
 
 [ext_resource type="Script" path="res://scenes/maps/levels/level2/level2.gd" id="1_i8qa6"]
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_jmth1"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dvptcwiy8f14h" path="res://scenes/objects/cross/cross.tscn" id="7_7ccuq"]
 [ext_resource type="PackedScene" uid="uid://hmo8uwbx841y" path="res://scenes/objects/box/box.tscn" id="8_uuglv"]
 [ext_resource type="PackedScene" uid="uid://d0j42x64fnnja" path="res://scenes/objects/star_particle/star_particle.tscn" id="9_j0yco"]
+[ext_resource type="PackedScene" uid="uid://bpirph6jbkhhr" path="res://scenes/objects/note/note.tscn" id="10_c0lv7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shlu3"]
 size = Vector2(38, 25)
@@ -46,7 +47,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-262134, 2031616, 10, -65532, 3211264, 9, -458756, 3211264, 9, -655356, 1703936, 8, -589819, 2097152, 11, -589820, 2097152, 11, -589821, 2097152, 11, -262142, 3145728, 7, -65538, 3145728, 7, -327687, 3145728, 4, -131060, 3145728, 2, -393212, 3145728, 2, -65531, 2752512, 15, -196603, 3538944, 8)
+layer_3/tile_data = PackedInt32Array(-262134, 2031616, 10, -65532, 3211264, 9, -458756, 3211264, 9, -655356, 1703936, 8, -589819, 2097152, 11, -589820, 2097152, 11, -589821, 2097152, 11, -262142, 3145728, 7, -65538, 3145728, 7, -327687, 3145728, 4, -131060, 3145728, 2, -393212, 3145728, 2, -196603, 3538944, 8)
 
 [node name="RPGRoguelikeIndoors" parent="." instance=ExtResource("3_mc30f")]
 position = Vector2(-3, 0)
@@ -102,6 +103,10 @@ position = Vector2(202, -87)
 [node name="Box" parent="." instance=ExtResource("8_uuglv")]
 z_index = 1
 position = Vector2(271, -252)
+
+[node name="Note" parent="." instance=ExtResource("10_c0lv7")]
+z_index = 1
+position = Vector2(178, -18)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true

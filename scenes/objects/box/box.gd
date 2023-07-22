@@ -1,8 +1,6 @@
 extends StaticBody2D
 
-
 var player: Player
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if player and Input.is_action_just_pressed("interaction"):
