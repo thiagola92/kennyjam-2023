@@ -5,9 +5,13 @@ var last_direction: Vector2
 
 @export var movement_speed: int = 100
 
+@export var movement_debuff: float = 1.0
+
 @export var animation_player: AnimationPlayer
 
 @export var flashlight: Flashlight
+
+@export var cross: Cross
 
 @export var game_ui: GameUI
 
@@ -27,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 	if direction.length() > 1:
 		direction = direction.normalized()
 		
-	velocity = direction * movement_speed
+	velocity = direction * movement_speed * movement_debuff
 	
 	if is_running:
 		ControlBox._verify_first_run()
@@ -39,9 +43,19 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("flashlight") and is_flashlight_enabled:
 		if flashlight.toggle():
-			game_ui.change_item(game_ui.FLASHLIGHT)
+			ControlBox._verify_first_flashlight()
+			game_ui.change_to_flashlight()
+			cross.visible = false
 		else:
-			game_ui.remove_item()
+			game_ui.change_to_empty()
+			
+	if Input.is_action_just_pressed("cross") and is_cross_enabled:
+		if cross.toggle():
+			ControlBox._verify_first_crucifix()
+			game_ui.change_to_cross()
+			flashlight.visible = false
+		else:
+			game_ui.change_to_empty()
 
 
 func _change_walk_animation(direction: Vector2, is_running: bool) -> void:

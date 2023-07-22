@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://qyaooic6ejhe"]
+[gd_scene load_steps=6 format=3 uid="uid://qyaooic6ejhe"]
 
 [ext_resource type="Script" path="res://scenes/ui/game_ui.gd" id="1_riffj"]
 [ext_resource type="Texture2D" uid="uid://c0ilgo7o56soq" path="res://assets/ui/buttonSquare_blue_pressed.png" id="2_ct06m"]
+[ext_resource type="Texture2D" uid="uid://d0tnjq6l5ay3h" path="res://assets/others/cross_center.png" id="3_c6hho"]
+[ext_resource type="Texture2D" uid="uid://c8wxp8rkpoqpq" path="res://assets/others/flashlight.png" id="4_3ikwo"]
 
 [sub_resource type="Theme" id="Theme_sacm7"]
 
-[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("item_slot")]
+[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("flashlight", "cross")]
 script = ExtResource("1_riffj")
-item_slot = NodePath("MarginContainer/HBoxContainer/TextureRect/TextureRect")
+flashlight = NodePath("MarginContainer/HBoxContainer/TextureRect/Flashlight")
+cross = NodePath("MarginContainer/HBoxContainer/TextureRect/Cross")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -29,17 +32,25 @@ modulate = Color(1, 1, 1, 0.745098)
 layout_mode = 2
 texture = ExtResource("2_ct06m")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/TextureRect"]
+[node name="Cross" type="TextureRect" parent="MarginContainer/HBoxContainer/TextureRect"]
+visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.0
-offset_top = -6.0
-offset_right = 18.0
-offset_bottom = 6.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_sacm7")
+texture = ExtResource("3_c6hho")
+expand_mode = 4
+
+[node name="Flashlight" type="TextureRect" parent="MarginContainer/HBoxContainer/TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3ikwo")
+stretch_mode = 3

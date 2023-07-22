@@ -2,16 +2,20 @@ class_name GameUI
 extends CanvasLayer
 
 
-const FLASHLIGHT: Texture = preload("res://assets/others/flashlight.png")
+@export var flashlight: TextureRect
 
-const CROSS: Texture = preload("res://assets/others/cross.png")
-
-@export var item_slot: TextureRect
+@export var cross: TextureRect
 
 
-func change_item(item: Texture) -> void:
-	item_slot.texture = item
+func change_to_flashlight() -> void:
+	flashlight.visible = true
+	cross.visible = false
 
 
-func remove_item() -> void:
-	item_slot.texture = null
+func change_to_cross() -> void:
+	cross.visible = true
+	flashlight.visible = false
+
+func change_to_empty() -> void:
+	cross.visible = false
+	flashlight.visible = false

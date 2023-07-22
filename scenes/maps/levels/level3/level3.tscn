@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c260vhichi4k1"]
 
-[ext_resource type="PackedScene" uid="uid://1kiq6e3l3gwt" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="1_xbcck"]
+[ext_resource type="PackedScene" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="1_xbcck"]
 [ext_resource type="PackedScene" uid="uid://bld3ugk8ghfek" path="res://scenes/maps/tilemaps/rpg_roguelike_pack.tscn" id="2_6uc86"]
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="3_bhote"]
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="4_2nr5g"]
