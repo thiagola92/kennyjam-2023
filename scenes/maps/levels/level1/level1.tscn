@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cg1ld77o6p4kr"]
 
-[ext_resource type="Script" path="res://scenes/maps/levels/level1.gd" id="1_lcmu8"]
+[ext_resource type="Script" path="res://scenes/maps/levels/level1/level1.gd" id="1_lcmu8"]
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_uk3ia"]
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="2_r2mn2"]
 [ext_resource type="PackedScene" uid="uid://ccpk8eoidbsn0" path="res://scenes/actions/interaction.tscn" id="3_s4opr"]

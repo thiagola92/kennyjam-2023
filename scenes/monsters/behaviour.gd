@@ -11,8 +11,6 @@ func _on_timer_timeout() -> void:
 	$MonsterAnimation.play("phasing")
 	follow_player = true
 
-
-
 func _detect_player(body: Node2D) -> void:
 	if body is Player:
 		print('catou o mané')
