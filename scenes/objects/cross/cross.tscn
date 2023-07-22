@@ -4,14 +4,20 @@
 [ext_resource type="Script" path="res://scenes/objects/cross/cross.gd" id="2_lkkhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mte2o"]
-size = Vector2(18, 22)
+size = Vector2(34, 22)
 
 [node name="Cross" type="Sprite2D"]
+position = Vector2(0, -31)
 texture = ExtResource("1_bhb6h")
+region_enabled = true
+region_rect = Rect2(8, 11, 18, 21)
 script = ExtResource("2_lkkhx")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 5)
+position = Vector2(0, 23)
 shape = SubResource("RectangleShape2D_mte2o")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
