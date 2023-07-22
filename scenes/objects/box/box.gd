@@ -1,12 +1,12 @@
-extends Sprite2D
+extends StaticBody2D
 
 
 var player: Player
 
 
-func _process(delta: float) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if player and Input.is_action_just_pressed("interaction"):
-		player.is_cross_enabled = true
+		player.is_flashlight_enabled = true
 		queue_free()
 
 

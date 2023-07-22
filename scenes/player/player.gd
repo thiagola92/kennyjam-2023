@@ -15,6 +15,8 @@ var _first_walk: bool = true
 
 @export var is_flashlight_enabled: bool = false
 
+@export var is_cross_enabled: bool = false
+
 @onready var ui_box: UIBox = $UIBox
 
 @onready var control_box: ControlBox = $ControlBox
