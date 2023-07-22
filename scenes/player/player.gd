@@ -42,12 +42,14 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("flashlight") and is_flashlight_enabled:
 		if flashlight.toggle():
 			game_ui.change_to_flashlight()
+			cross.visible = false
 		else:
 			game_ui.change_to_empty()
 			
 	if Input.is_action_just_pressed("cross") and is_cross_enabled:
 		if cross.toggle():
 			game_ui.change_to_cross()
+			flashlight.visible = false
 		else:
 			game_ui.change_to_empty()
 
