@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfhtr4udtwv4f"]
+[gd_scene load_steps=9 format=3 uid="uid://cfhtr4udtwv4f"]
 
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_jmth1"]
 [ext_resource type="PackedScene" uid="uid://bld3ugk8ghfek" path="res://scenes/maps/tilemaps/rpg_roguelike_pack.tscn" id="2_dsuvj"]
-[ext_resource type="PackedScene" uid="uid://1kiq6e3l3gwt" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="3_mc30f"]
+[ext_resource type="PackedScene" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="3_mc30f"]
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="4_m76e0"]
 [ext_resource type="PackedScene" uid="uid://r0u8b33fyt3m" path="res://scenes/objects/candle_light/candle_light.tscn" id="5_app88"]
 [ext_resource type="PackedScene" uid="uid://st0dlgxpx4qe" path="res://scenes/objects/wine_rack/wine_rack.tscn" id="7_4tyn1"]
 [ext_resource type="PackedScene" uid="uid://dvptcwiy8f14h" path="res://scenes/objects/cross/cross.tscn" id="7_7ccuq"]
+[ext_resource type="PackedScene" uid="uid://hmo8uwbx841y" path="res://scenes/objects/box/box.tscn" id="8_uuglv"]
 
 [node name="level2" type="Node2D"]
 y_sort_enabled = true
@@ -14,7 +15,7 @@ y_sort_enabled = true
 [node name="RPGUrbanPack" parent="." instance=ExtResource("1_jmth1")]
 z_index = 1
 y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(-524276, 458753, 11, -524280, 327681, 10)
+layer_0/tile_data = PackedInt32Array(-524276, 458753, 11)
 
 [node name="RPGRoguelikePack" parent="." instance=ExtResource("2_dsuvj")]
 y_sort_enabled = true
@@ -94,3 +95,7 @@ lock_rotation = true
 z_index = 1
 z_as_relative = false
 position = Vector2(202, -87)
+
+[node name="Box" parent="." instance=ExtResource("8_uuglv")]
+z_index = 1
+position = Vector2(271, -252)
