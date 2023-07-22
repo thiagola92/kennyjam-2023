@@ -9,6 +9,8 @@ var last_direction: Vector2
 
 @export var flashlight: Flashlight
 
+@export var cross: Cross
+
 @export var game_ui: GameUI
 
 @export var is_flashlight_enabled: bool = false
@@ -39,9 +41,17 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("flashlight") and is_flashlight_enabled:
 		if flashlight.toggle():
-			game_ui.change_item(game_ui.FLASHLIGHT)
+			game_ui.change_to_flashlight()
+			cross.visible = false
 		else:
-			game_ui.remove_item()
+			game_ui.change_to_empty()
+			
+	if Input.is_action_just_pressed("cross") and is_cross_enabled:
+		if cross.toggle():
+			game_ui.change_to_cross()
+			flashlight.visible = false
+		else:
+			game_ui.change_to_empty()
 
 
 func _change_walk_animation(direction: Vector2, is_running: bool) -> void:
