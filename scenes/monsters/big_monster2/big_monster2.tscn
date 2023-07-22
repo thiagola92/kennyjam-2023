@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://coj0b0tscn4k1"]
+
+[ext_resource type="Script" path="res://scenes/monsters/big_monster2/big_monster2.gd" id="1_riccj"]
+[ext_resource type="Texture2D" uid="uid://bg1fgefugcr0" path="res://assets/monsters/ghost.png" id="1_t0rlj"]
+[ext_resource type="Texture2D" uid="uid://cyh88vdpy7l0o" path="res://assets/particles/blackSmoke22.png" id="2_atkln"]
+[ext_resource type="AudioStream" uid="uid://drkpefkhluk0n" path="res://assets/sounds/SE/horror_breath.mp3" id="3_bpv0k"]
+
+[sub_resource type="Animation" id="Animation_7i35c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonsterSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lq8so"]
+resource_name = "phasing"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonsterSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bro4q"]
+_data = {
+"RESET": SubResource("Animation_7i35c"),
+"phasing": SubResource("Animation_lq8so")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgcuy"]
+radius = 25.02
+
+[node name="BigMonster2" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_riccj")
+
+[node name="MonsterSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_t0rlj")
+
+[node name="MonsterParticles" type="CPUParticles2D" parent="."]
+texture = ExtResource("2_atkln")
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color = Color(1, 1, 1, 0.223529)
+
+[node name="MonsterAnimation" type="AnimationPlayer" parent="."]
+autoplay = "phasing"
+libraries = {
+"": SubResource("AnimationLibrary_bro4q")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tgcuy")
+
+[node name="Cry" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bpv0k")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_detect_player"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
