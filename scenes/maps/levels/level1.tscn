@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg1ld77o6p4kr"]
+[gd_scene load_steps=10 format=3 uid="uid://cg1ld77o6p4kr"]
 
+[ext_resource type="Script" path="res://scenes/maps/levels/level1.gd" id="1_lcmu8"]
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_uk3ia"]
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="2_r2mn2"]
 [ext_resource type="PackedScene" uid="uid://ccpk8eoidbsn0" path="res://scenes/actions/interaction.tscn" id="3_s4opr"]
@@ -7,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/actions/door_interaction.gd" id="4_y2hvf"]
 [ext_resource type="PackedScene" uid="uid://0jqucry7l44h" path="res://scenes/objects/light_pole_light/light_pole_light.tscn" id="5_ys6r8"]
 [ext_resource type="AudioStream" uid="uid://c1s3ufplveco0" path="res://assets/sounds/city_background.mp3" id="6_xf0c0"]
+[ext_resource type="PackedScene" uid="uid://1udb4y56c6tt" path="res://scenes/monsters/big_monster.tscn" id="8_iamlh"]
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
@@ -135,3 +137,7 @@ blend_mode = 1
 stream = ExtResource("6_xf0c0")
 volume_db = -17.992
 autoplay = true
+
+[node name="BigMonster" parent="." instance=ExtResource("8_iamlh")]
+position = Vector2(-310, -77)
+script = ExtResource("1_lcmu8")
