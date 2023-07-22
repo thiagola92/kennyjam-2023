@@ -148,5 +148,7 @@ script = ExtResource("10_nayee")
 [node name="star_particle" parent="." instance=ExtResource("11_oxthh")]
 position = Vector2(1585, -98)
 
-[node name="star_particle2" parent="." instance=ExtResource("11_oxthh")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="star_particle2" parent="CanvasLayer" instance=ExtResource("11_oxthh")]
 position = Vector2(-166, -88)

@@ -67,8 +67,9 @@ _data = {
 "up_label_animation": SubResource("Animation_6emnd")
 }
 
-[node name="Interaction" type="Node2D"]
+[node name="Interaction" type="Node2D" node_paths=PackedStringArray("label")]
 script = ExtResource("1_1oj1b")
+label = NodePath("Label")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -81,18 +82,19 @@ libraries = {
 "": SubResource("AnimationLibrary_ebtcl")
 }
 
+[node name="LockedDoorSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -7)
+stream = ExtResource("2_pettv")
+
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = -27.0
 offset_top = -26.0
 offset_right = 28.0
 theme_override_font_sizes/font_size = 13
+text = "TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="LockedDoorSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(0, -7)
-stream = ExtResource("2_pettv")
 
 [connection signal="body_entered" from="Area2D" to="." method="_detect_entry"]
 [connection signal="body_exited" from="Area2D" to="." method="_detect_leave"]

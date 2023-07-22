@@ -2,6 +2,8 @@ class_name Player
 extends CharacterBody2D
 
 
+var last_direction: Vector2
+
 @export var movement_speed: int = 100
 
 @export var animation_player: AnimationPlayer
@@ -12,7 +14,7 @@ extends CharacterBody2D
 
 @export var is_flashlight_enabled: bool = false
 
-var last_direction: Vector2
+@onready var ui_box: UIBox = $UIBox
 
 
 func _physics_process(_delta: float) -> void:

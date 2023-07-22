@@ -6,34 +6,40 @@ var _third_msg_showed: bool = false
 var _forth_msg_showed: bool = false
 var _fifth_msg_showed: bool = false
 
-func _process(delta: float) -> void:
-	var player = get_node("Player")
-	var text_box = player.get_node("UIBox")
-	
-	if not _first_msg_showed and not text_box.label_showing:
-		text_box._show_label("Wait, where am I?", 2)
-		set_physics(false, player)
-		_first_msg_showed = true
-	elif not _second_msg_showed and not text_box.label_showing:
-		text_box._show_label("I don't recognize this place...", 3)
-		set_physics(false, player)
-		_second_msg_showed = true
-	elif not _third_msg_showed and not text_box.label_showing:
-		text_box._show_label("My phone also doesn't work, what a time to be lost.", 4)
-		set_physics(false, player)
-		_third_msg_showed = true
-	elif not _forth_msg_showed and not text_box.label_showing:
-		text_box._show_label("Maybe that street post over there can give me some answers about where the hell I ended up", 6)
-		set_physics(false, player)
-		_forth_msg_showed = true
-	elif not _fifth_msg_showed and not text_box.label_showing:
-		text_box._show_label("That is... If I can get there without stumbling too much in my own feet. It is dark as hell...", 7)
-		set_physics(false, player)
-		_fifth_msg_showed = true
-		
-	if Input.is_action_just_pressed("interaction") and text_box.label_showing:
-		text_box._hide_label()
-		set_physics(true, player)
+var _message_idx: int = 0
+var _messages: Array[Array] = [
+	["Wait, where am I?", 2],
+	["I don't recognize this place...", 3],
+	["My phone also doesn't work, what a time to be lost.", 4],
+	["Maybe that street post over there can give me some answers about where the hell I ended up", 6],
+	["That is... If I can get there without stumbling too much in my own feet. It is dark as hell...", 7],
+]
 
-func set_physics (flag: bool, player: Player) -> void:
-	player.set_physics_process(flag)
+@onready var player: Player = $Player
+
+@onready var text_box: UIBox = $Player.ui_box
+
+
+func _ready() -> void:
+	player.set_physics_process(false)
+	show_text()
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("interaction") and text_box.label_showing:
+		_message_idx += 1
+		show_text()
+
+
+func show_text() -> void:
+	# No more texts
+	if _message_idx >= _messages.size():
+		text_box._hide_label()
+		player.set_physics_process(true)
+		return
+	
+	var text_and_time: Array = _messages[_message_idx]
+	var text: String = text_and_time[0]
+	var time: float = text_and_time[1]
+	
+	text_box._show_label(text, time)
