@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="1_jmth1"]
 [ext_resource type="PackedScene" uid="uid://bld3ugk8ghfek" path="res://scenes/maps/tilemaps/rpg_roguelike_pack.tscn" id="2_dsuvj"]
-[ext_resource type="PackedScene" uid="uid://1kiq6e3l3gwt" path="res://scenes/maps/tilemaps/wine_rack_1.tscn" id="3_mc30f"]
+[ext_resource type="PackedScene" uid="uid://1kiq6e3l3gwt" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="3_mc30f"]
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="4_m76e0"]
 [ext_resource type="PackedScene" uid="uid://r0u8b33fyt3m" path="res://scenes/objects/candle_light/candle_light.tscn" id="5_app88"]
 [ext_resource type="PackedScene" uid="uid://st0dlgxpx4qe" path="res://scenes/objects/wine_rack/wine_rack.tscn" id="7_4tyn1"]
