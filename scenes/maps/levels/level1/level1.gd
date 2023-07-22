@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		set_physics(false, player)
 		_third_msg_showed = true
 	elif not _forth_msg_showed and not text_box.label_showing:
-		text_box._show_label("Maybe that street post over there can give me some answers about where I am", 6)
+		text_box._show_label("Maybe that street post over there can give me some answers about where the hell I ended up", 6)
 		set_physics(false, player)
 		_forth_msg_showed = true
 	elif not _fifth_msg_showed and not text_box.label_showing:
