@@ -81,6 +81,7 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_u0yqv")
 stretch_mode = 3
