@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 var last_direction: Vector2
+var key_quantity: int = 0
 
 @export var movement_speed: int = 100
 
@@ -84,3 +85,9 @@ func _change_walk_animation(direction: Vector2, is_running: bool) -> void:
 	
 func _play_scream () -> void:
 	$Scream.play()
+
+func _add_key () -> void:
+	key_quantity += 1
+	
+func _has_keys () -> bool:
+	return key_quantity > 0
