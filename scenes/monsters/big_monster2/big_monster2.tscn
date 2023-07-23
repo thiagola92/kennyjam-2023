@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://coj0b0tscn4k1"]
+[gd_scene load_steps=12 format=3 uid="uid://coj0b0tscn4k1"]
 
 [ext_resource type="Script" path="res://scenes/monsters/big_monster2/big_monster2.gd" id="1_riccj"]
 [ext_resource type="Texture2D" uid="uid://bg1fgefugcr0" path="res://assets/monsters/ghost.png" id="1_t0rlj"]
 [ext_resource type="Texture2D" uid="uid://cyh88vdpy7l0o" path="res://assets/particles/blackSmoke22.png" id="2_atkln"]
 [ext_resource type="AudioStream" uid="uid://drkpefkhluk0n" path="res://assets/sounds/SE/horror_breath.mp3" id="3_bpv0k"]
+[ext_resource type="AudioStream" uid="uid://cbjeguajk1n5g" path="res://assets/sounds/SE/horror_breath_deep_reverb.mp3" id="5_n8211"]
+[ext_resource type="AudioStream" uid="uid://dsjb5w6mako2s" path="res://assets/sounds/SE/horror_breath_deep_reverb_2.mp3" id="6_ntxf7"]
 
 [sub_resource type="Animation" id="Animation_7i35c"]
 length = 0.001
@@ -22,7 +24,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_lq8so"]
 resource_name = "phasing"
-length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -31,8 +32,8 @@ tracks/0/path = NodePath("MonsterSprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
@@ -46,7 +47,12 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_tgcuy"]
 radius = 25.02
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dg7sw"]
+radius = 1276.05
+
 [node name="BigMonster2" type="CharacterBody2D"]
+z_index = 3
+z_as_relative = false
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_riccj")
@@ -64,7 +70,6 @@ scale_amount_max = 0.5
 color = Color(1, 1, 1, 0.223529)
 
 [node name="MonsterAnimation" type="AnimationPlayer" parent="."]
-autoplay = "phasing"
 libraries = {
 "": SubResource("AnimationLibrary_bro4q")
 }
@@ -83,5 +88,19 @@ stream = ExtResource("3_bpv0k")
 wait_time = 30.0
 autostart = true
 
+[node name="CloseArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloseArea"]
+shape = SubResource("CircleShape2D_dg7sw")
+debug_color = Color(0.768627, 0.443137, 0, 0.419608)
+
+[node name="Warn1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n8211")
+
+[node name="Warn2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ntxf7")
+
 [connection signal="body_entered" from="Area2D" to="." method="_detect_player"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="CloseArea" to="." method="_on_close_area_body_entered"]
+[connection signal="body_exited" from="CloseArea" to="." method="_on_close_area_body_exited"]

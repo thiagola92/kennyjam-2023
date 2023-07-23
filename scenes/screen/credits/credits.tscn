@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d24y13at4hkgl"]
+[gd_scene load_steps=8 format=3 uid="uid://d24y13at4hkgl"]
 
 [ext_resource type="Texture2D" uid="uid://bg1fgefugcr0" path="res://assets/monsters/ghost.png" id="1_iu6mi"]
 [ext_resource type="Script" path="res://scenes/screen/credits/credits.gd" id="1_v3s6l"]
+[ext_resource type="Texture2D" uid="uid://bpb4hd0idhnnp" path="res://assets/logo/T2Rr1D.png" id="2_4yle6"]
+[ext_resource type="Texture2D" uid="uid://cauidlxgth6fu" path="res://assets/logo/logo_large_color_dark.png" id="3_cyjpq"]
 
 [sub_resource type="Animation" id="Animation_wh7kd"]
 length = 0.001
@@ -161,7 +163,7 @@ _data = {
 "stupid_dance": SubResource("Animation_1falp")
 }
 
-[node name="Credits" type="MarginContainer"]
+[node name="Credits" type="MarginContainer" node_paths=PackedStringArray("scroll_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -172,37 +174,104 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_v3s6l")
+scroll_container = NodePath("ScrollContainer")
 
-[node name="VBoxContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
+scroll_vertical = 845
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Credits" type="Label" parent="VBoxContainer/VBoxContainer"]
+[node name="BigSpace" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Credits"
+theme_override_font_sizes/font_size = 72
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer"]
+[node name="GameName" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Game Name"
+horizontal_alignment = 1
 
-[node name="Lucas" type="Label" parent="VBoxContainer/VBoxContainer"]
+[node name="Space" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+
+[node name="Developers" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Developers"
+horizontal_alignment = 1
+
+[node name="Lucas2" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Lucas Hardman"
 horizontal_alignment = 1
 
-[node name="Stephanie" type="Label" parent="VBoxContainer/VBoxContainer"]
+[node name="Stephanie" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Stephanie Fay"
 horizontal_alignment = 1
 
-[node name="Thiago" type="Label" parent="VBoxContainer/VBoxContainer"]
+[node name="Thiago" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "ThiagoLA92"
+horizontal_alignment = 1
+
+[node name="Space2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+
+[node name="Assets" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Assets"
+horizontal_alignment = 1
+
+[node name="Kenny" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Many assets from https://kenney.nl/"
+horizontal_alignment = 1
+
+[node name="Zapsplat" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Additional sound effects from https://www.zapsplat.com"
+horizontal_alignment = 1
+
+[node name="Space4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="KennyJam" type="TextureRect" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_4yle6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Godot" type="TextureRect" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_cyjpq")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Space3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
 horizontal_alignment = 1
 
 [node name="LeftGhost" type="Sprite2D" parent="."]

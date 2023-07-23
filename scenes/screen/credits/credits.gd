@@ -1,6 +1,13 @@
 extends MarginContainer
 
 
+@export var scroll_container: ScrollContainer
+
+
+func _process(delta: float) -> void:
+	scroll_container.scroll_vertical += 1
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if (
 		Input.is_action_just_pressed("cancel")

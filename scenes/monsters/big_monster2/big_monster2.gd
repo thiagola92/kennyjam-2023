@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var movement_speed: int = 170
+@export var base_movement_speed: float = 120
 
 @export var follow_player: bool = false
 
@@ -12,6 +12,13 @@ var y = [1760, -1143]
 
 var current_random_position: Vector2
 
+var switch_warn_audio: bool = false
+
+var is_player_close: bool = false
+
+var buff_speed: float = 0
+
+
 func _process(delta: float) -> void:
 	if player and player.visible:
 		$NavigationAgent2D.target_position = player.global_position
@@ -19,12 +26,16 @@ func _process(delta: float) -> void:
 		if not current_random_position:
 			_on_timer_timeout()
 		$NavigationAgent2D.target_position = current_random_position
+	
+	if is_player_close and buff_speed < 40:
+		buff_speed += 1 * delta
+		print(buff_speed)
 
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to($NavigationAgent2D.get_next_path_position())
 	
-	velocity = direction * movement_speed
+	velocity = direction * (base_movement_speed + buff_speed)
 	move_and_slide()
 
 
@@ -42,3 +53,22 @@ func _play_cry () -> void:
 
 func _on_timer_timeout() -> void:
 	current_random_position = Vector2(randf_range(x[0], x[1]), randf_range(y[0], y[1]))
+
+
+func _on_close_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		is_player_close = true
+	
+	if is_player_close and not $Warn1.playing and not $Warn2.playing:
+		if switch_warn_audio:
+			$Warn1.play()
+		else:
+			$Warn2.play()
+		
+		switch_warn_audio = not switch_warn_audio
+
+
+func _on_close_area_body_exited(body: Node2D) -> void:
+	if body is Player:
+		is_player_close = false
+		buff_speed = 0
