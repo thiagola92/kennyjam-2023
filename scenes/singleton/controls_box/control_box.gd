@@ -14,7 +14,7 @@ var first_action: bool = true
 var first_drag: bool = true
 var first_hide: bool = true
 
-func _show_label (text: String, icon: String, time: float) -> void:
+func _show_label(text: String, icon: String, time: float) -> void:
 	if tween:
 		tween.kill()
 	
@@ -25,8 +25,12 @@ func _show_label (text: String, icon: String, time: float) -> void:
 
 	var texture = $CanvasLayer/VBoxContainer/HBoxContainer/TextureRect
 	texture.visible = true
-	texture.texture = load("res://assets/ui/" + icon + ".png")
-
+	
+	if icon:
+		texture.texture = load("res://assets/ui/" + icon + ".png")
+	else:
+		texture.texture = null
+	
 	label_showing = true
 	$Timer.start()
 	
