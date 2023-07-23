@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgk0854o4n4du"]
 
-[ext_resource type="Script" path="res://scenes/objects/controls_box/control_box.gd" id="1_jip66"]
+[ext_resource type="Script" path="res://scenes/singleton/controls_box/control_box.gd" id="1_jip66"]
 
 [sub_resource type="Theme" id="Theme_or07r"]
 
