@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://3trk30ok2nyy"]
+[gd_scene load_steps=8 format=3 uid="uid://3trk30ok2nyy"]
 
 [ext_resource type="Script" path="res://scenes/maps/levels/level4/level4.gd" id="1_2k80b"]
 [ext_resource type="PackedScene" uid="uid://bld3ugk8ghfek" path="res://scenes/maps/tilemaps/rpg_roguelike_pack.tscn" id="1_daoyp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cr5f1tkbvc7fo" path="res://assets/maps/tiles/wood.png" id="4_vm70q"]
 [ext_resource type="PackedScene" uid="uid://1kiq6e3l3gwt" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="5_lrn3m"]
 [ext_resource type="PackedScene" uid="uid://r4akhmcqnj33" path="res://scenes/maps/tilemaps/tiny_dungeon.tscn" id="6_sacke"]
+[ext_resource type="PackedScene" uid="uid://5w5gjrhttfxg" path="res://scenes/objects/key/key.tscn" id="7_6sq0q"]
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_2k80b")
@@ -54,3 +55,7 @@ y_sort_enabled = true
 scale = Vector2(0.2, 0.2)
 cell_quadrant_size = 128
 layer_0/tile_data = PackedInt32Array(983063, 524288, 20, 1048599, 524288, 21, 983064, 589824, 20, 1048600, 589824, 21, 196682, 393216, 20, 262218, 393216, 21, 196683, 458752, 20, 262219, 458752, 21, 1114075, 393216, 20, 1179611, 393216, 21, 1114076, 458752, 20, 1179612, 458752, 21, -1507326, 262144, 20, -1441790, 262144, 21, -1507325, 327680, 20, -1441789, 327680, 21, -4128786, 262144, 20, -4063250, 262144, 21, -4128785, 327680, 20, -4063249, 327680, 21, -3211301, 393216, 20, -3145765, 393216, 21, -3211300, 458752, 20, -3145764, 458752, 21, -3866596, 393216, 20, -3801060, 393216, 21, -3866595, 458752, 20, -3801059, 458752, 21, -2686903, 524288, 20, -2621367, 524288, 21, -2686902, 589824, 20, -2621366, 589824, 21, -4325309, 262144, 20, -4259773, 262144, 21, -4325308, 327680, 20, -4259772, 327680, 21)
+
+[node name="Key" parent="." instance=ExtResource("7_6sq0q")]
+modulate = Color(0.819608, 0.768627, 0.454902, 1)
+position = Vector2(-381, -396)

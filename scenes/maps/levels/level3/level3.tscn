@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c260vhichi4k1"]
+[gd_scene load_steps=12 format=3 uid="uid://c260vhichi4k1"]
 
 [ext_resource type="Script" path="res://scenes/maps/levels/level3/level3.gd" id="1_bfuet"]
-[ext_resource type="PackedScene" uid="uid://daittqrcn6cjk" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="1_xbcck"]
+[ext_resource type="PackedScene" uid="uid://1kiq6e3l3gwt" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="1_xbcck"]
 [ext_resource type="PackedScene" uid="uid://bld3ugk8ghfek" path="res://scenes/maps/tilemaps/rpg_roguelike_pack.tscn" id="2_6uc86"]
 [ext_resource type="PackedScene" uid="uid://roqpwa5qcb25" path="res://scenes/maps/tilemaps/rpg_urban_pack.tscn" id="3_bhote"]
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="4_2nr5g"]
@@ -11,9 +11,6 @@
 [ext_resource type="Script" path="res://scenes/objects/light_pole_light/light_pole_generic.gd" id="9_ew7yj"]
 [ext_resource type="PackedScene" uid="uid://r0u8b33fyt3m" path="res://scenes/objects/candle_light/candle_light.tscn" id="10_02dan"]
 [ext_resource type="PackedScene" uid="uid://coj0b0tscn4k1" path="res://scenes/monsters/big_monster2/big_monster2.tscn" id="11_bvaeu"]
-[ext_resource type="PackedScene" uid="uid://c66blqeviwqyk" path="res://scenes/maps/tilemaps/tiny_town.tscn" id="13_dil3t"]
-[ext_resource type="PackedScene" uid="uid://5w5gjrhttfxg" path="res://scenes/objects/key/key.tscn" id="14_en3pa"]
-[ext_resource type="PackedScene" uid="uid://d0j42x64fnnja" path="res://scenes/objects/star_particle/star_particle.tscn" id="14_unh0c"]
 
 [node name="level3" type="Node2D" node_paths=PackedStringArray("player")]
 y_sort_enabled = true
@@ -78,7 +75,7 @@ layer_1/tile_data = PackedInt32Array(-1310769, 3276800, 3, -1245233, 3276800, 4,
 
 [node name="Player" parent="." instance=ExtResource("4_2nr5g")]
 z_index = 1
-position = Vector2(148, 880)
+position = Vector2(147, 881)
 
 [node name="Interactions (Hideouts)" type="Node2D" parent="."]
 
@@ -1058,19 +1055,3 @@ blend_mode = 1
 [node name="BigMonster2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_bvaeu")]
 position = Vector2(-1354, -1019)
 player = NodePath("../Player")
-
-[node name="TinyTown" parent="." instance=ExtResource("13_dil3t")]
-position = Vector2(31, 92)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="star_particle" parent="CanvasLayer" instance=ExtResource("14_unh0c")]
-z_index = 5
-z_as_relative = false
-position = Vector2(1390, 290)
-scale = Vector2(0.5, 0.5)
-
-[node name="Key" parent="." instance=ExtResource("14_en3pa")]
-z_index = 2
-position = Vector2(1389, 289)
