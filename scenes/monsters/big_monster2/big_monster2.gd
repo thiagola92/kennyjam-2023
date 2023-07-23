@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var base_movement_speed: float = 150
+@export var base_movement_speed: float = 160
 
 @export var follow_player: bool = false
 
@@ -18,14 +18,12 @@ var is_player_close: bool = false
 
 var is_stunned: bool = false
 
-var buff_speed: float = 0
-
-var max_buff_speed: float = 20
-
 
 func _process(delta: float) -> void:
 	if player and player.visible:
-		if is_player_close and player.spend_cross_charge():
+		var distance: float = global_position.distance_to(player.global_position)
+		
+		if is_player_close and distance < 100 and player.spend_cross_charge():
 			is_stunned = true
 			$StunCooldown.start()
 			$Exorcism.play()
@@ -38,15 +36,12 @@ func _process(delta: float) -> void:
 		if not current_random_position:
 			_on_timer_timeout()
 		$NavigationAgent2D.target_position = current_random_position
-	
-	if is_player_close and buff_speed < max_buff_speed:
-		buff_speed += 1 * delta
 
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to($NavigationAgent2D.get_next_path_position())
 	
-	velocity = direction * (base_movement_speed + buff_speed)
+	velocity = direction * base_movement_speed
 	move_and_slide()
 
 
@@ -83,7 +78,6 @@ func _on_close_area_body_entered(body: Node2D) -> void:
 func _on_close_area_body_exited(body: Node2D) -> void:
 	if body is Player:
 		is_player_close = false
-		buff_speed = 0
 		body.target_heart_speed = 1.0
 
 
