@@ -1069,6 +1069,7 @@ position = Vector2(-784, -1237)
 position = Vector2(1423, 213)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 energy = 0.9
 blend_mode = 1
 

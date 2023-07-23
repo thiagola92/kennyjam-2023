@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://citkhfbxb0erb"]
+[gd_scene load_steps=17 format=3 uid="uid://citkhfbxb0erb"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_g5hsq"]
 [ext_resource type="Texture2D" uid="uid://ko7fselm4uwd" path="res://assets/maps/rpg_urban_pack.png" id="2_av37q"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dxu7i6cyv1rar" path="res://scenes/items/cross/cross.tscn" id="6_rmmm5"]
 [ext_resource type="PackedScene" uid="uid://brbiguot6pbyg" path="res://scenes/objects/transitioner/transitioner.tscn" id="7_77rjt"]
 [ext_resource type="AudioStream" uid="uid://2d6e1ddn6k7e" path="res://assets/sounds/SE/scream.mp3" id="8_i1dyb"]
+[ext_resource type="AudioStream" uid="uid://b7vdv1am5asap" path="res://assets/sounds/SE/heart.mp3" id="9_poxpd"]
 
 [sub_resource type="Animation" id="Animation_a6q5e"]
 length = 0.001
@@ -282,3 +283,6 @@ offset_bottom = -220.0
 
 [node name="Scream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_i1dyb")
+
+[node name="Heart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_poxpd")

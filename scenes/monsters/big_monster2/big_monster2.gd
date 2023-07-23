@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var base_movement_speed: float = 120
+@export var base_movement_speed: float = 110
 
 @export var follow_player: bool = false
 
@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 			_on_timer_timeout()
 		$NavigationAgent2D.target_position = current_random_position
 	
-	if is_player_close and buff_speed < 40:
+	if is_player_close and buff_speed < 50:
 		buff_speed += 1 * delta
 		print(buff_speed)
 
@@ -58,6 +58,8 @@ func _on_timer_timeout() -> void:
 func _on_close_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		is_player_close = true
+		body.target_heart_speed = 1.5
+		print(is_player_close)
 	
 	if is_player_close and not $Warn1.playing and not $Warn2.playing:
 		if switch_warn_audio:
@@ -72,3 +74,4 @@ func _on_close_area_body_exited(body: Node2D) -> void:
 	if body is Player:
 		is_player_close = false
 		buff_speed = 0
+		body.target_heart_speed = 1.0

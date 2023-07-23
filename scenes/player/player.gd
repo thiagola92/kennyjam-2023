@@ -2,7 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 var last_direction: Vector2
+
 var key_quantity: int = 0
+
+var target_heart_speed = 1
 
 @export var movement_speed: int = 100
 
@@ -21,6 +24,10 @@ var key_quantity: int = 0
 @export var is_cross_enabled: bool = false
 
 @onready var ui_box: UIBox = $UIBox
+
+func _process(delta: float) -> void:
+	print($Heart.pitch_scale)
+	$Heart.pitch_scale = lerpf($Heart.pitch_scale, target_heart_speed, 0.1)
 
 func _physics_process(_delta: float) -> void:	
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
@@ -91,3 +98,6 @@ func _add_key () -> void:
 	
 func _has_keys () -> bool:
 	return key_quantity > 0
+
+func start_heart() -> void:
+	$Heart.play()

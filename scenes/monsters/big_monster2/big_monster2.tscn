@@ -48,7 +48,7 @@ _data = {
 radius = 25.02
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dg7sw"]
-radius = 1276.05
+radius = 1183.58
 
 [node name="BigMonster2" type="CharacterBody2D"]
 z_index = 3
@@ -99,6 +99,9 @@ stream = ExtResource("5_n8211")
 
 [node name="Warn2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_ntxf7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_detect_player"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
