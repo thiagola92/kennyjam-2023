@@ -119,11 +119,11 @@ z_index = 3
 position = Vector2(350.653, 122.692)
 script = ExtResource("11_4jwo0")
 
-[node name="NoteWithoutBody" parent="." instance=ExtResource("12_22um2")]
+[node name="Note 3" parent="." instance=ExtResource("12_22um2")]
 position = Vector2(-419.613, -203.125)
 script = ExtResource("13_1isb0")
 
-[node name="NoteWithoutBody2" parent="." instance=ExtResource("12_22um2")]
+[node name="End note" parent="." instance=ExtResource("12_22um2")]
 position = Vector2(159, 26)
 script = ExtResource("14_y2lfn")
 
