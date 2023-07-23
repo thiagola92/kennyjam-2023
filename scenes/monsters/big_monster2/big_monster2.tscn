@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://coj0b0tscn4k1"]
+[gd_scene load_steps=13 format=3 uid="uid://coj0b0tscn4k1"]
 
 [ext_resource type="Script" path="res://scenes/monsters/big_monster2/big_monster2.gd" id="1_riccj"]
 [ext_resource type="Texture2D" uid="uid://bg1fgefugcr0" path="res://assets/monsters/ghost.png" id="1_t0rlj"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://drkpefkhluk0n" path="res://assets/sounds/SE/horror_breath.mp3" id="3_bpv0k"]
 [ext_resource type="AudioStream" uid="uid://cbjeguajk1n5g" path="res://assets/sounds/SE/horror_breath_deep_reverb.mp3" id="5_n8211"]
 [ext_resource type="AudioStream" uid="uid://dsjb5w6mako2s" path="res://assets/sounds/SE/horror_breath_deep_reverb_2.mp3" id="6_ntxf7"]
+[ext_resource type="AudioStream" uid="uid://cdpa6m6p1heam" path="res://assets/sounds/SE/monster_exorcism.mp3" id="7_ljc4o"]
 
 [sub_resource type="Animation" id="Animation_7i35c"]
 length = 0.001
@@ -103,7 +104,14 @@ stream = ExtResource("6_ntxf7")
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
 
+[node name="StunCooldown" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Exorcism" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ljc4o")
+
 [connection signal="body_entered" from="Area2D" to="." method="_detect_player"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="CloseArea" to="." method="_on_close_area_body_entered"]
 [connection signal="body_exited" from="CloseArea" to="." method="_on_close_area_body_exited"]
+[connection signal="timeout" from="StunCooldown" to="." method="_on_stun_cooldown_timeout"]

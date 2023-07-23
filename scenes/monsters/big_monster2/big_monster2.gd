@@ -16,12 +16,22 @@ var switch_warn_audio: bool = false
 
 var is_player_close: bool = false
 
+var is_stunned: bool = false
+
 var buff_speed: float = 0
 
 
 func _process(delta: float) -> void:
 	if player and player.visible:
-		$NavigationAgent2D.target_position = player.global_position
+		if is_player_close and player.spend_cross_charge():
+			is_stunned = true
+			$StunCooldown.start()
+			$Exorcism.play()
+		
+		if is_stunned:
+			$NavigationAgent2D.target_position = current_random_position
+		else:
+			$NavigationAgent2D.target_position = player.global_position
 	else:
 		if not current_random_position:
 			_on_timer_timeout()
@@ -73,3 +83,7 @@ func _on_close_area_body_exited(body: Node2D) -> void:
 		is_player_close = false
 		buff_speed = 0
 		body.target_heart_speed = 1.0
+
+
+func _on_stun_cooldown_timeout() -> void:
+	is_stunned = false
