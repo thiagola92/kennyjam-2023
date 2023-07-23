@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d24y13at4hkgl"]
+[gd_scene load_steps=6 format=3 uid="uid://d24y13at4hkgl"]
 
 [ext_resource type="Texture2D" uid="uid://bg1fgefugcr0" path="res://assets/monsters/ghost.png" id="1_iu6mi"]
+[ext_resource type="Script" path="res://scenes/screen/credits/credits.gd" id="1_v3s6l"]
 
 [sub_resource type="Animation" id="Animation_wh7kd"]
 length = 0.001
@@ -170,6 +171,7 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
+script = ExtResource("1_v3s6l")
 
 [node name="VBoxContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
