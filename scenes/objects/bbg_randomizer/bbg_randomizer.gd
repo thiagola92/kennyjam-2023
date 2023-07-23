@@ -14,9 +14,6 @@ var sounds: Array[String] = [
 
 var rng = RandomNumberGenerator.new()
 
-func _process(delta: float) -> void:
-	print($Timer.time_left)
-
 func _on_timer_timeout() -> void:
 	_start_random_sounds()
 
