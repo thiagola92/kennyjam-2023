@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c260vhichi4k1"]
+[gd_scene load_steps=12 format=3 uid="uid://c260vhichi4k1"]
 
 [ext_resource type="Script" path="res://scenes/maps/levels/level3/level3.gd" id="1_bfuet"]
 [ext_resource type="PackedScene" uid="uid://1kiq6e3l3gwt" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="1_xbcck"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://citkhfbxb0erb" path="res://scenes/player/player.tscn" id="4_2nr5g"]
 [ext_resource type="PackedScene" uid="uid://ccpk8eoidbsn0" path="res://scenes/actions/interaction.tscn" id="6_h5r7x"]
 [ext_resource type="Script" path="res://scenes/actions/is_hideout.gd" id="7_hkyli"]
-[ext_resource type="Script" path="res://scenes/actions/interaction_library.gd" id="8_gd2cw"]
 [ext_resource type="PackedScene" uid="uid://0jqucry7l44h" path="res://scenes/objects/light_pole_light/light_pole_light.tscn" id="8_ghixa"]
 [ext_resource type="Script" path="res://scenes/objects/light_pole_light/light_pole_generic.gd" id="9_ew7yj"]
 [ext_resource type="PackedScene" uid="uid://r0u8b33fyt3m" path="res://scenes/objects/candle_light/candle_light.tscn" id="10_02dan"]
@@ -854,11 +853,6 @@ percent_hideout = 0.6
 position = Vector2(106, -990)
 script = ExtResource("7_hkyli")
 percent_hideout = 0.6
-
-[node name="Interaction156" parent="Interactions (Hideouts)" instance=ExtResource("6_h5r7x")]
-position = Vector2(-1744, -1665)
-scale = Vector2(4.42623, 1.35189)
-script = ExtResource("8_gd2cw")
 
 [node name="Lightsources (Poles)" type="Node2D" parent="."]
 
