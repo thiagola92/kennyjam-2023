@@ -9,4 +9,4 @@ func _ready() -> void:
 	player.is_cross_enabled = true
 	
 	if ControlBox.first_hide:
-		ControlBox._show_label("You can always hide from the monster by interacting with unlocked doors with E key", "e_key", 4)
+		ControlBox._show_label("You can always hide from the monster by interacting with unlocked doors with E key", "e_key", 6)
