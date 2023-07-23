@@ -13,7 +13,9 @@ func _ready() -> void:
 	]
 	
 func _process(delta: float) -> void:
-	var unlocked = player._has_keys()
+	var unlocked = false
+	if player:
+		unlocked = player._has_keys()
 	
 	if unlocked and not started_script and player and Input.is_action_just_pressed("interaction") and not text_box.label_showing:
 		_remove_sparkles()
