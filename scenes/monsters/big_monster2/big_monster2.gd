@@ -29,7 +29,6 @@ func _process(delta: float) -> void:
 	
 	if is_player_close and buff_speed < 50:
 		buff_speed += 1 * delta
-		print(buff_speed)
 
 
 func _physics_process(delta: float) -> void:
@@ -59,7 +58,6 @@ func _on_close_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		is_player_close = true
 		body.target_heart_speed = 1.5
-		print(is_player_close)
 	
 	if is_player_close and not $Warn1.playing and not $Warn2.playing:
 		if switch_warn_audio:

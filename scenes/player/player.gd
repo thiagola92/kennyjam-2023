@@ -26,7 +26,6 @@ var target_heart_speed = 1
 @onready var ui_box: UIBox = $UIBox
 
 func _process(delta: float) -> void:
-	print($Heart.pitch_scale)
 	$Heart.pitch_scale = lerpf($Heart.pitch_scale, target_heart_speed, 0.1)
 
 func _physics_process(_delta: float) -> void:	
