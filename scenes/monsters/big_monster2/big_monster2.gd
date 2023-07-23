@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var base_movement_speed: float = 110
+@export var base_movement_speed: float = 150
 
 @export var follow_player: bool = false
 
@@ -20,6 +20,8 @@ var is_stunned: bool = false
 
 var buff_speed: float = 0
 
+var max_buff_speed: float = 20
+
 
 func _process(delta: float) -> void:
 	if player and player.visible:
@@ -37,7 +39,7 @@ func _process(delta: float) -> void:
 			_on_timer_timeout()
 		$NavigationAgent2D.target_position = current_random_position
 	
-	if is_player_close and buff_speed < 50:
+	if is_player_close and buff_speed < max_buff_speed:
 		buff_speed += 1 * delta
 
 
@@ -49,7 +51,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _detect_player(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and body.visible:
 		body._play_scream()
 		body.set_physics_process(false)
 		body.get_node("Transitioner")._transition()
