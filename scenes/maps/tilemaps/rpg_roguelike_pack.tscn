@@ -2735,9 +2735,14 @@ use_texture_padding = false
 52:16/0 = 0
 52:16/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 52:16/0/physics_layer_0/angular_velocity = 0.0
+53:16/next_alternative_id = 2
 53:16/0 = 0
 53:16/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 53:16/0/physics_layer_0/angular_velocity = 0.0
+53:16/1 = 1
+53:16/1/texture_origin = Vector2i(0, -25)
+53:16/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+53:16/1/physics_layer_0/angular_velocity = 0.0
 54:16/0 = 0
 54:16/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 54:16/0/physics_layer_0/angular_velocity = 0.0
@@ -2885,9 +2890,14 @@ use_texture_padding = false
 52:17/0 = 0
 52:17/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 52:17/0/physics_layer_0/angular_velocity = 0.0
+53:17/next_alternative_id = 2
 53:17/0 = 0
 53:17/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 53:17/0/physics_layer_0/angular_velocity = 0.0
+53:17/1 = 1
+53:17/1/texture_origin = Vector2i(0, -25)
+53:17/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+53:17/1/physics_layer_0/angular_velocity = 0.0
 54:17/0 = 0
 54:17/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 54:17/0/physics_layer_0/angular_velocity = 0.0
@@ -5439,6 +5449,6 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cj2yf")
 
-[node name="RPGRoguelikePack" type="TileMap"]
+[node name="-" type="TileMap"]
 tile_set = SubResource("TileSet_luse5")
 format = 2
