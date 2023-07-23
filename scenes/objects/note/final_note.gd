@@ -9,11 +9,12 @@ func _ready() -> void:
 		["You will need to find a way to reach the bridge near the edge of the city", 7],
 		["Crossing it you will be able to find a building that has a type of backdoor back to reality", 9],
 		["I can't guarantee it still works, I, myself, will leave this place and try my luck, since I've been alone for so much time", 7],
-		["Good luck to you, you will need it, and maybe we will meet someday back in reality\""],
+		["Good luck to you, you will need it, and maybe we will meet someday back in reality\"", 5],
 	]
 	
 func _process(delta: float) -> void:
 	var unlocked = false
+	
 	if player:
 		unlocked = player._has_keys()
 	
@@ -27,7 +28,7 @@ func _process(delta: float) -> void:
 		ended_script = false
 		player.set_physics_process(false)
 		show_text()
-	else:
+	elif not unlocked and player and Input.is_action_just_pressed("interaction"):
 		ControlBox._show_label("You need a key to open this", "", 2)
 
 
