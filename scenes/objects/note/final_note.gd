@@ -1,5 +1,6 @@
 extends "res://scenes/objects/note/note.gd"
 
+var next_scene: PackedScene = preload("res://scenes/screen/credits/credits.tscn")
 
 func _ready() -> void:
 	_messages = [
@@ -23,11 +24,6 @@ func _process(delta: float) -> void:
 	elif unlocked and not ended_script and player and Input.is_action_just_pressed("interaction") and text_box.label_showing:
 		_message_idx += 1
 		show_text()
-	elif unlocked and started_script and ended_script and player and Input.is_action_just_pressed("interaction") and not text_box.label_showing:
-		_message_idx = 0
-		ended_script = false
-		player.set_physics_process(false)
-		show_text()
 	elif not unlocked and player and Input.is_action_just_pressed("interaction"):
 		ControlBox._show_label("You need a key to open this", "", 2)
 
@@ -44,6 +40,7 @@ func show_text() -> void:
 		text_box._hide_label()
 		player.set_physics_process(true)
 		ended_script = true
+		get_tree().change_scene_to_packed(next_scene)
 		return
 		
 	var text_and_time: Array = _messages[_message_idx]
