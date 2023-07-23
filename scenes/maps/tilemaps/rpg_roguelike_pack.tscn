@@ -5534,6 +5534,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cj2yf")
 
-[node name="-" type="TileMap"]
+[node name="RPGRogueLike" type="TileMap"]
+y_sort_enabled = true
 tile_set = SubResource("TileSet_luse5")
 format = 2
