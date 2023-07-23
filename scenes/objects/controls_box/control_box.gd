@@ -28,6 +28,7 @@ func _show_label (text: String, icon: String, time: float) -> void:
 	texture.texture = load("res://assets/ui/" + icon + ".png")
 
 	label_showing = true
+	$Timer.start()
 	
 func _hide_label () -> void:
 	if tween:
@@ -71,4 +72,9 @@ func _verify_first_drag() -> void:
 func _verify_first_hide() -> void:
 	if first_hide:
 		first_hide = false
+		_hide_label()
+
+
+func _on_timer_timeout() -> void:
+	if label_showing:
 		_hide_label()

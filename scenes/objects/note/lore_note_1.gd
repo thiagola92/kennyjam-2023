@@ -13,7 +13,7 @@ func _ready() -> void:
 	]
 
 func _remove_sparkles () -> void:
-	get_parent().get_node("CanvasLayer/star_particle").visible = false
+	get_parent().get_node("CanvasLayer/star_particle1").visible = false
 	started_script = true
 	player.set_physics_process(false)
 	show_text()

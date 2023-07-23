@@ -43,3 +43,8 @@ visible_ratio = 0.0
 layout_mode = 2
 size_flags_horizontal = 4
 stretch_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
