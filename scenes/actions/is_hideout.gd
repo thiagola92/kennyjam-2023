@@ -31,6 +31,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func _execute_action () -> void:
+	ControlBox._verify_first_hide()
+	
 	if not is_hideout:
 		_show_label_with_text('Locked')
 		$LockedDoorSound.play(0)
