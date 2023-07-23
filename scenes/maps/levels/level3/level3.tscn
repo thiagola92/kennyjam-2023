@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c260vhichi4k1"]
+[gd_scene load_steps=16 format=3 uid="uid://c260vhichi4k1"]
 
 [ext_resource type="Script" path="res://scenes/maps/levels/level3/level3.gd" id="1_bfuet"]
 [ext_resource type="PackedScene" uid="uid://daittqrcn6cjk" path="res://scenes/maps/tilemaps/rpg_roguelike_indoors.tscn" id="1_xbcck"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c66blqeviwqyk" path="res://scenes/maps/tilemaps/tiny_town.tscn" id="13_dil3t"]
 [ext_resource type="PackedScene" uid="uid://5w5gjrhttfxg" path="res://scenes/objects/key/key.tscn" id="14_en3pa"]
 [ext_resource type="PackedScene" uid="uid://d0j42x64fnnja" path="res://scenes/objects/star_particle/star_particle.tscn" id="14_unh0c"]
+[ext_resource type="AudioStream" uid="uid://c1s3ufplveco0" path="res://assets/sounds/BGS/city_background.mp3" id="15_etond"]
 
 [node name="level3" type="Node2D" node_paths=PackedStringArray("player")]
 y_sort_enabled = true
@@ -1077,3 +1078,8 @@ scale = Vector2(0.5, 0.5)
 [node name="Key" parent="." instance=ExtResource("14_en3pa")]
 z_index = 2
 position = Vector2(1389, 289)
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_etond")
+volume_db = -17.992
+autoplay = true
