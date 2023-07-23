@@ -107,13 +107,13 @@ func spend_cross_charge() -> bool:
 	# Se a cruz estiver aparecendo e não estiver rodando, então pode usar a cruz
 	if cross.visible and $CrossCooldown.is_stopped():
 		$CrossCooldown.start()
-		cross.is_disabled = true
-		cross.visible = false
+		cross.disable()
 		game_ui.change_to_empty()
 		return true
 	return false
 
 
 func _on_cross_timer_timeout() -> void:
-	cross.is_disabled = false
+	cross.enable()
+	$CrossAnimation.play("cross_returned")
 	$CrossCooldown.stop()

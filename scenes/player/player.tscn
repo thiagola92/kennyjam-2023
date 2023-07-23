@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://citkhfbxb0erb"]
+[gd_scene load_steps=20 format=3 uid="uid://citkhfbxb0erb"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_g5hsq"]
 [ext_resource type="Texture2D" uid="uid://ko7fselm4uwd" path="res://assets/maps/rpg_urban_pack.png" id="2_av37q"]
@@ -225,6 +225,42 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_asvxe"]
 radius = 6.0
 
+[sub_resource type="Animation" id="Animation_4nl40"]
+resource_name = "cross_returned"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/CrossLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u7plq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/CrossLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ufrux"]
+_data = {
+"RESET": SubResource("Animation_u7plq"),
+"cross_returned": SubResource("Animation_4nl40")
+}
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player", "flashlight", "cross", "game_ui")]
 y_sort_enabled = true
 script = ExtResource("1_g5hsq")
@@ -267,6 +303,17 @@ shape = SubResource("CircleShape2D_asvxe")
 
 [node name="GameUI" parent="." instance=ExtResource("5_jqgt2")]
 
+[node name="CrossLabel" type="Label" parent="GameUI"]
+modulate = Color(1, 1, 1, 0)
+z_index = 9
+z_as_relative = false
+offset_left = 262.0
+offset_top = 231.0
+offset_right = 378.0
+offset_bottom = 248.0
+theme_override_font_sizes/font_size = 10
+text = "Crucifix power returned"
+
 [node name="Cross" parent="." instance=ExtResource("6_rmmm5")]
 visible = false
 position = Vector2(0, -11)
@@ -289,5 +336,10 @@ stream = ExtResource("9_poxpd")
 
 [node name="CrossCooldown" type="Timer" parent="."]
 wait_time = 15.0
+
+[node name="CrossAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ufrux")
+}
 
 [connection signal="timeout" from="CrossCooldown" to="." method="_on_cross_timer_timeout"]

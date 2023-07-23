@@ -11,3 +11,11 @@ func toggle() -> bool:
 	
 	visible = not visible
 	return visible
+
+func disable() -> void:
+	is_disabled = true
+	visible = false
+
+
+func enable() -> void:
+	is_disabled = false
